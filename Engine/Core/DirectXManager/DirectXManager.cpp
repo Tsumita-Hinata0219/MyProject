@@ -391,7 +391,7 @@ void DirectXManager::CreateDxgiFactory()
 /// </summary>
 void DirectXManager::CreateDevice() 
 {
-	// 昨日レベルとログ出力用の文字列
+	// 機能レベルとログ出力用の文字列
 	D3D_FEATURE_LEVEL featureLevels[] = {
 		D3D_FEATURE_LEVEL_12_2,
 		D3D_FEATURE_LEVEL_12_1,
