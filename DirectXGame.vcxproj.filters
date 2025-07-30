@@ -5,74 +5,11 @@
     <ClCompile Include="Application\System\GameManager\GameManager.cpp">
       <Filter>Application\GameManager</Filter>
     </ClCompile>
-    <ClCompile Include="Application\GameObject\Camera\GameCamera\GameCamera.cpp">
-      <Filter>Application\GameObject\Camera\GameCamera</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Camera\GameCamera\Control\GameCameraControl.cpp">
-      <Filter>Application\GameObject\Camera\GameCamera\Control</Filter>
-    </ClCompile>
     <ClCompile Include="Application\System\Camera\Manager\CameraManager.cpp">
       <Filter>Application\GameObject\Camera\Manager</Filter>
     </ClCompile>
     <ClCompile Include="Application\System\Camera\Resources\CameraResource.cpp">
       <Filter>Application\GameObject\Camera\Resources</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\EnemyManager.cpp">
-      <Filter>Application\GameObject\Character\EnemyManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\Bullet\EnemyBullet.cpp">
-      <Filter>Application\GameObject\Character\EnemyManager\Bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\Effect\HitEffect\Circle\EnemyHitEffectCircle.cpp">
-      <Filter>Application\GameObject\Character\EnemyManager\Effect\HitEffect\Circle</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\Effect\Interface\IEnemyEffect.cpp">
-      <Filter>Application\GameObject\Character\EnemyManager\Effect\Interface</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\Enemy\IEnemy.cpp">
-      <Filter>Application\GameObject\Character\EnemyManager\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\Enemy\Static\StaticEnemy.cpp">
-      <Filter>Application\GameObject\Character\EnemyManager\Enemy\Static</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\Enemy\Basic\State\Idle\BasicEnemyIdleState.cpp">
-      <Filter>Application\GameObject\Character\EnemyManager\Enemy\Basic\State\Idle</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\Enemy\Basic\State\Death\BasicEnemyDeathState.cpp">
-      <Filter>Application\GameObject\Character\EnemyManager\Enemy\Basic\State\Death</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\Enemy\Basic\State\Approach\BasicEnemyApproachState.cpp">
-      <Filter>Application\GameObject\Character\EnemyManager\Enemy\Basic\State\Approach</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\Enemy\Basic\State\Spawn\BasicEnemySpawnState.cpp">
-      <Filter>Application\GameObject\Character\EnemyManager\Enemy\Basic\State\Spawn</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\Enemy\Basic\BasicEnemy.cpp">
-      <Filter>Application\GameObject\Character\EnemyManager\Enemy\Basic</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Character\Player\Player.cpp">
-      <Filter>Application\GameObject\Character\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Character\Player\Boby\Right\PlayerRightBody.cpp">
-      <Filter>Application\GameObject\Character\Player\Boby\Right</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Character\Player\Boby\Main\PlayerMainBody.cpp">
-      <Filter>Application\GameObject\Character\Player\Boby\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Character\Player\Boby\Left\PlayerLeftBody.cpp">
-      <Filter>Application\GameObject\Character\Player\Boby\Left</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Character\Player\Bullet\PlayerBullet.cpp">
-      <Filter>Application\GameObject\Character\Player\Bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Character\Player\Movement\PlayerMovement.cpp">
-      <Filter>Application\GameObject\Character\Player\Movement</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Character\Player\Particle\Manager\PlayerParticleManager.cpp">
-      <Filter>Application\GameObject\Character\Player\Particle\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Character\Player\Particle\Movement\PlayerMovementParticle.cpp">
-      <Filter>Application\GameObject\Character\Player\Particle\Movement</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Engine\Audio\AudioDataResource\AudioDataResource.cpp">
@@ -240,102 +177,17 @@
     <ClCompile Include="Application\System\IObject\IObject.cpp">
       <Filter>Application\GameObject\IObject</Filter>
     </ClCompile>
-    <ClCompile Include="Application\GameObject\Others\UI\Game\GameSceneUI.cpp">
-      <Filter>Application\GameObject\Others\UI\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Others\TitleUIManager\SelectBar\SelectBar.cpp">
-      <Filter>Application\GameObject\Others\TitleUIManager\SelectBar</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Others\TitleUIManager\TitleLabelObject\TitleLabelObject.cpp">
-      <Filter>Application\GameObject\Others\TitleUIManager\TitleLabelObject</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Others\TitleUIManager\GameNameBar\GameNameBar.cpp">
-      <Filter>Application\GameObject\Others\TitleUIManager\GameNameBar</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Others\TitleUIManager\TitleUIManager.cpp">
-      <Filter>Application\GameObject\Others\TitleUIManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Others\TitleBackGround\TitleBackGround.cpp">
-      <Filter>Application\GameObject\Others\TitleBackGround</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Others\StartDirection\StartDirection.cpp">
-      <Filter>Application\GameObject\Others\StartDirection</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Others\StageTransitionMenu\ResultUI\StageTransitionMenuResultUI.cpp">
-      <Filter>Application\GameObject\Others\StageTransitionMenu\ResultUI</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Others\StageTransitionMenu\TextLine\StageTransitionMenuTextLine.cpp">
-      <Filter>Application\GameObject\Others\StageTransitionMenu\TextLine</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Others\StageTransitionMenu\Navigation\StageTransitionMenuNavigation.cpp">
-      <Filter>Application\GameObject\Others\StageTransitionMenu\Navigation</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Others\StageTransitionMenu\NaviBack\StageTransitionMenuNaviBack.cpp">
-      <Filter>Application\GameObject\Others\StageTransitionMenu\NaviBack</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Others\StageTransitionMenu\Blur\StageTransitionMenuBlur.cpp">
-      <Filter>Application\GameObject\Others\StageTransitionMenu\Blur</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Others\StageTransitionMenu\BackScreen\StageTransitionMenuBackScreen.cpp">
-      <Filter>Application\GameObject\Others\StageTransitionMenu\BackScreen</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Others\StageTransitionMenu\StageTransitionMenuManager.cpp">
-      <Filter>Application\GameObject\Others\StageTransitionMenu</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Others\SceneTransition\SceneTransition.cpp">
-      <Filter>Application\GameObject\Others\SceneTransition</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Terrain\Skydome\Skydome.cpp">
-      <Filter>Application\GameObject\Terrain\Skydome</Filter>
-    </ClCompile>
     <ClCompile Include="Application\GameObject\Terrain\Floor\Floor.cpp">
       <Filter>Application\GameObject\Terrain\Floor</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Terrain\BoxManager\Barrier\BarrierBox.cpp">
-      <Filter>Application\GameObject\Terrain\BoxManager\Barrier</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Terrain\BoxManager\Destructible\DestructibleBox.cpp">
-      <Filter>Application\GameObject\Terrain\BoxManager\Destructible</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Terrain\BoxManager\BoxManager.cpp">
-      <Filter>Application\GameObject\Terrain\BoxManager</Filter>
     </ClCompile>
     <ClCompile Include="Application\Scene\DebugScene\DebugScene.cpp">
       <Filter>Application\Scene\DebugScene</Filter>
     </ClCompile>
-    <ClCompile Include="Application\Scene\GameScene\GameScene.cpp">
-      <Filter>Application\Scene\GameScene</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\Scene\TitleScene\TitleScene.cpp">
-      <Filter>Application\Scene\TitleScene</Filter>
-    </ClCompile>
-    <ClCompile Include="Application\GameObject\Terrain\SkyboxObj\SkyboxObj.cpp">
-      <Filter>Application\GameObject\Terrain\SkyboxObj</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Entity\Actor\IActor.cpp" />
     <ClCompile Include="Engine\Entity\Component\Base\IBaseComponent.cpp" />
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\Enemy\Boss\BossEnemy.cpp" />
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\Shield\EnemyShield.cpp" />
     <ClCompile Include="Engine\Math\MyTemplate\MyTemplate.cpp" />
-    <ClCompile Include="Application\GameObject\Character\Player\BulletSweep\BulletSweepEraser.cpp" />
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\Movement\EnemyMovement.cpp" />
-    <ClCompile Include="Application\GameObject\Character\Player\OperationUI\OperationUIManager.cpp" />
-    <ClCompile Include="Application\GameObject\Character\Player\OperationUI\Interface\IOperationUI.cpp" />
     <ClCompile Include="Engine\Utilities\Logger\Logger.cpp" />
-    <ClCompile Include="Application\GameObject\Others\PauseManager\PauseManager.cpp" />
-    <ClCompile Include="Application\GameObject\Others\PauseManager\Controller\PauseController.cpp" />
-    <ClCompile Include="Application\GameObject\Others\PauseManager\Renderer\PauseRenderer.cpp" />
     <ClCompile Include="Application\GameObject\Dev\Demo\Demo.cpp" />
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\BulletContainer\EnemyBulletContainer.cpp" />
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\BulletContainer\ShotPattern\None\EnemyShotPatternNone.cpp" />
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\BulletContainer\ShotPattern\Cross\EnemyShotPatternCross.cpp" />
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\BulletContainer\ShotPattern\Forward\EnemyShotPatternForward.cpp" />
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\BulletContainer\ShotPattern\OmniEight\EnemyShotPatternOmniEight.cpp" />
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\BulletContainer\ShotPattern\OmniFive\EnemyShotPatternOmniFive.cpp" />
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\BulletContainer\ShotPattern\OmniFour\EnemyShotPatternOmniFour.cpp" />
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\BulletContainer\ShotPattern\Random\EnemyShotPatternRandom.cpp" />
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\BulletContainer\ShotPattern\TripleForward\EnemyShotPatternTripleForward.cpp" />
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\EffectContainer\EnemyEffectContainer.cpp" />
     <ClCompile Include="Engine\Utilities\FlagManager\FlagManager.cpp" />
     <ClCompile Include="Engine\Utilities\TimeSystem\TimeSystem.cpp" />
     <ClCompile Include="Engine\Graphics\GPUParticle\Manager\ParticleManager.cpp" />
@@ -346,13 +198,8 @@
     <ClCompile Include="Engine\Entity\TransformNode\Node\TransformNode.cpp" />
     <ClCompile Include="Application\GameObject\Dev\DevActor\DevActor.cpp" />
     <ClCompile Include="Application\Scene\DevScene\DevScene.cpp" />
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\Effect\OmniBarst\EnemyOmniBarstParticle.cpp" />
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\Effect\OmniExplosion\EnemyOmniExplosionParticle.cpp" />
     <ClCompile Include="Application\GameObject\Dev\DummyParticle\DummyParticle.cpp" />
     <ClCompile Include="Engine\Entity\Manager\GameEntityManager.cpp" />
-    <ClCompile Include="Application\GameObject\Character\EnemyManager\Effect\OmniBack\EnemyOmniBackParticle.cpp" />
-    <ClCompile Include="Application\GameObject\Others\TitleUIManager\StageSelect\StageSelect.cpp" />
-    <ClCompile Include="Application\GameObject\Others\TitleUIManager\StageSelectRender\StageSelectRender.cpp" />
     <ClCompile Include="Engine\Graphics\GPUParticle\Material\FadeOut\ParticleFadeOut.cpp" />
     <ClCompile Include="externals\imgui\imgui_stdlib.cpp" />
     <ClCompile Include="Engine\Platform\WinApp\WinApp.cpp" />
@@ -442,6 +289,7 @@
     <ClCompile Include="Engine\ResourceSystem\TextureLoader\TextureLoader.cpp" />
     <ClCompile Include="Engine\Graphics\PipeLineManager\ModelPipeLine\Decal\DecalPipeLine.cpp" />
     <ClCompile Include="Engine\Graphics\Material\Decal\Decal.cpp" />
+    <ClCompile Include="Application\GameObject\Terrain\Skydome\Skydome.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application\System\GameManager\GameManager.h">
@@ -450,83 +298,11 @@
     <ClInclude Include="Application\GameObject\GameObject.h">
       <Filter>Application\GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="Application\GameObject\Camera\GameCamera\GameCamera.h">
-      <Filter>Application\GameObject\Camera\GameCamera</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Camera\GameCamera\Control\GameCameraControl.h">
-      <Filter>Application\GameObject\Camera\GameCamera\Control</Filter>
-    </ClInclude>
     <ClInclude Include="Application\System\Camera\Manager\CameraManager.h">
       <Filter>Application\GameObject\Camera\Manager</Filter>
     </ClInclude>
     <ClInclude Include="Application\System\Camera\Resources\CameraResource.h">
       <Filter>Application\GameObject\Camera\Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\EnemyManager.h">
-      <Filter>Application\GameObject\Character\EnemyManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\Bullet\EnemyBullet.h">
-      <Filter>Application\GameObject\Character\EnemyManager\Bullet</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\Effect\HitEffect\Circle\EnemyHitEffectCircle.h">
-      <Filter>Application\GameObject\Character\EnemyManager\Effect\HitEffect\Circle</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\Effect\Interface\IEnemyEffect.h">
-      <Filter>Application\GameObject\Character\EnemyManager\Effect\Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\Enemy\IEnemy.h">
-      <Filter>Application\GameObject\Character\EnemyManager\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\Enemy\Static\StaticEnemy.h">
-      <Filter>Application\GameObject\Character\EnemyManager\Enemy\Static</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\Enemy\Basic\State\IBasicEnemyState.h">
-      <Filter>Application\GameObject\Character\EnemyManager\Enemy\Basic\State</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\Enemy\Basic\State\Idle\BasicEnemyIdleState.h">
-      <Filter>Application\GameObject\Character\EnemyManager\Enemy\Basic\State\Idle</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\Enemy\Basic\State\Death\BasicEnemyDeathState.h">
-      <Filter>Application\GameObject\Character\EnemyManager\Enemy\Basic\State\Death</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\Enemy\Basic\State\Approach\BasicEnemyApproachState.h">
-      <Filter>Application\GameObject\Character\EnemyManager\Enemy\Basic\State\Approach</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\Enemy\Basic\State\Spawn\BasicEnemySpawnState.h">
-      <Filter>Application\GameObject\Character\EnemyManager\Enemy\Basic\State\Spawn</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\Enemy\Basic\BasicEnemy.h">
-      <Filter>Application\GameObject\Character\EnemyManager\Enemy\Basic</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Character\Player\Player.h">
-      <Filter>Application\GameObject\Character\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Character\Player\Boby\IPlayerBody.h">
-      <Filter>Application\GameObject\Character\Player\Boby</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Character\Player\Boby\Right\PlayerRightBody.h">
-      <Filter>Application\GameObject\Character\Player\Boby\Right</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Character\Player\Boby\Main\PlayerMainBody.h">
-      <Filter>Application\GameObject\Character\Player\Boby\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Character\Player\Boby\Left\PlayerLeftBody.h">
-      <Filter>Application\GameObject\Character\Player\Boby\Left</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Character\Player\Bullet\PlayerBullet.h">
-      <Filter>Application\GameObject\Character\Player\Bullet</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Character\Player\Movement\PlayerMovement.h">
-      <Filter>Application\GameObject\Character\Player\Movement</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Character\Player\Particle\Interface\IPlayerParticle.h">
-      <Filter>Application\GameObject\Character\Player\Particle\Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Character\Player\Particle\Manager\PlayerParticleManager.h">
-      <Filter>Application\GameObject\Character\Player\Particle\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Character\Player\Particle\Movement\PlayerMovementParticle.h">
-      <Filter>Application\GameObject\Character\Player\Particle\Movement</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Audio\AudioDataResource\AudioDataResource.h">
       <Filter>Engine\Audio\AudioDataResource</Filter>
@@ -948,120 +724,21 @@
     <ClInclude Include="Application\System\IObject\IObject.h">
       <Filter>Application\GameObject\IObject</Filter>
     </ClInclude>
-    <ClInclude Include="Application\GameObject\Others\UI\Game\GameSceneUI.h">
-      <Filter>Application\GameObject\Others\UI\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Others\TitleUIManager\SelectBar\SelectBar.h">
-      <Filter>Application\GameObject\Others\TitleUIManager\SelectBar</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Others\TitleUIManager\TitleLabelObject\TitleLabelObject.h">
-      <Filter>Application\GameObject\Others\TitleUIManager\TitleLabelObject</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Others\TitleUIManager\GameNameBar\GameNameBar.h">
-      <Filter>Application\GameObject\Others\TitleUIManager\GameNameBar</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Others\TitleUIManager\TitleUIManager.h">
-      <Filter>Application\GameObject\Others\TitleUIManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Others\TitleBackGround\TitleBackGround.h">
-      <Filter>Application\GameObject\Others\TitleBackGround</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Others\StartDirection\StartDirection.h">
-      <Filter>Application\GameObject\Others\StartDirection</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Others\StageTransitionMenu\ResultUI\StageTransitionMenuResultUI.h">
-      <Filter>Application\GameObject\Others\StageTransitionMenu\ResultUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Others\StageTransitionMenu\TextLine\StageTransitionMenuTextLine.h">
-      <Filter>Application\GameObject\Others\StageTransitionMenu\TextLine</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Others\StageTransitionMenu\Navigation\StageTransitionMenuNavigation.h">
-      <Filter>Application\GameObject\Others\StageTransitionMenu\Navigation</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Others\StageTransitionMenu\NaviBack\StageTransitionMenuNaviBack.h">
-      <Filter>Application\GameObject\Others\StageTransitionMenu\NaviBack</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Others\StageTransitionMenu\Blur\StageTransitionMenuBlur.h">
-      <Filter>Application\GameObject\Others\StageTransitionMenu\Blur</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Others\StageTransitionMenu\BackScreen\StageTransitionMenuBackScreen.h">
-      <Filter>Application\GameObject\Others\StageTransitionMenu\BackScreen</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Others\StageTransitionMenu\IStageTransitionMenu.h">
-      <Filter>Application\GameObject\Others\StageTransitionMenu</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Others\StageTransitionMenu\StageTransitionMenuManager.h">
-      <Filter>Application\GameObject\Others\StageTransitionMenu</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Others\SceneTransition\SceneTransition.h">
-      <Filter>Application\GameObject\Others\SceneTransition</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Terrain\Skydome\Skydome.h">
-      <Filter>Application\GameObject\Terrain\Skydome</Filter>
-    </ClInclude>
     <ClInclude Include="Application\GameObject\Terrain\Floor\Floor.h">
       <Filter>Application\GameObject\Terrain\Floor</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Terrain\BoxManager\Barrier\BarrierBox.h">
-      <Filter>Application\GameObject\Terrain\BoxManager\Barrier</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Terrain\BoxManager\Destructible\DestructibleBox.h">
-      <Filter>Application\GameObject\Terrain\BoxManager\Destructible</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Terrain\BoxManager\Interface\IBoxObject.h">
-      <Filter>Application\GameObject\Terrain\BoxManager\Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\GameObject\Terrain\BoxManager\BoxManager.h">
-      <Filter>Application\GameObject\Terrain\BoxManager</Filter>
     </ClInclude>
     <ClInclude Include="Application\Scene\DebugScene\DebugScene.h">
       <Filter>Application\Scene\DebugScene</Filter>
     </ClInclude>
-    <ClInclude Include="Application\Scene\GameScene\GameScene.h">
-      <Filter>Application\Scene\GameScene</Filter>
-    </ClInclude>
-    <ClInclude Include="Application\Scene\TitleScene\TitleScene.h">
-      <Filter>Application\Scene\TitleScene</Filter>
-    </ClInclude>
     <ClInclude Include="Application\Scene\IScene.h">
       <Filter>Application\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Application\GameObject\Terrain\SkyboxObj\SkyboxObj.h">
-      <Filter>Application\GameObject\Terrain\SkyboxObj</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Entity\Actor\IActor.h" />
     <ClInclude Include="Engine\Entity\Component\Base\IBaseComponent.h" />
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\Enemy\Boss\BossEnemy.h" />
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\Shield\EnemyShield.h" />
     <ClInclude Include="Engine\Math\MyTemplate\MyTemplate.h" />
     <ClInclude Include="Engine\JsonManager\JsonEntityData.h" />
-    <ClInclude Include="Application\GameObject\Character\Player\BulletSweep\BulletSweepEraser.h" />
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\Movement\EnemyMovement.h" />
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\Property\EnemyProperty.h" />
-    <ClInclude Include="Application\GameObject\Character\Player\OperationUI\OperationUIManager.h" />
-    <ClInclude Include="Application\GameObject\Character\Player\OperationUI\Interface\IOperationUI.h" />
-    <ClInclude Include="Application\GameObject\Character\Player\OperationUI\ContFrame\OperationUI_ContFrame.h" />
-    <ClInclude Include="Application\GameObject\Character\Player\OperationUI\Line\OperationUI_Line.h" />
-    <ClInclude Include="Application\GameObject\Character\Player\OperationUI\LStick\OperationUI_LStick.h" />
-    <ClInclude Include="Application\GameObject\Character\Player\OperationUI\RB\OperationUI_RB.h" />
-    <ClInclude Include="Application\GameObject\Character\Player\OperationUI\RStick\OperationUI_RStick.h" />
     <ClInclude Include="Engine\Utilities\Logger\Logger.h" />
-    <ClInclude Include="Application\GameObject\Others\PauseManager\PauseManager.h" />
-    <ClInclude Include="Application\GameObject\Others\PauseManager\Controller\PauseController.h" />
-    <ClInclude Include="Application\GameObject\Others\PauseManager\Renderer\PauseRenderer.h" />
     <ClInclude Include="Application\GameObject\Dev\Demo\Demo.h" />
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\BulletContainer\EnemyBulletContainer.h" />
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\BulletContainer\ShotFactory\EnemyShotStateFactory.h" />
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\BulletContainer\ShotPattern\IEnemyShotPattern.h" />
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\BulletContainer\ShotPattern\None\EnemyShotPatternNone.h" />
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\BulletContainer\ShotPattern\Cross\EnemyShotPatternCross.h" />
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\BulletContainer\ShotPattern\Forward\EnemyShotPatternForward.h" />
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\BulletContainer\ShotPattern\OmniEight\EnemyShotPatternOmniEight.h" />
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\BulletContainer\ShotPattern\OmniFive\EnemyShotPatternOmniFive.h" />
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\BulletContainer\ShotPattern\OmniFour\EnemyShotPatternOmniFour.h" />
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\BulletContainer\ShotPattern\Random\EnemyShotPatternRandom.h" />
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\BulletContainer\ShotPattern\TripleForward\EnemyShotPatternTripleForward.h" />
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\EffectContainer\EnemyEffectContainer.h" />
     <ClInclude Include="Engine\Utilities\FlagManager\FlagManager.h" />
     <ClInclude Include="Engine\Utilities\TimeSystem\TimeSystem.h" />
     <ClInclude Include="Engine\Graphics\GPUParticle\Structure\EmitterStructure.h" />
@@ -1088,15 +765,10 @@
     <ClInclude Include="Engine\Entity\Entity.h" />
     <ClInclude Include="Application\Scene\DevScene\DevScene.h" />
     <ClInclude Include="Application\GameObject\Dev\DevActor\Rend\DevRenderComponent.h" />
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\Effect\OmniBarst\EnemyOmniBarstParticle.h" />
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\Effect\OmniExplosion\EnemyOmniExplosionParticle.h" />
     <ClInclude Include="Application\GameObject\Dev\DevActor\Comp\Move\DevActorMoveComponent.h" />
     <ClInclude Include="Engine\Entity\Manager\GameEntityManager.h" />
-    <ClInclude Include="Application\GameObject\Character\EnemyManager\Effect\OmniBack\EnemyOmniBackParticle.h" />
     <ClInclude Include="Engine\Utilities\PtrUtilities\PtrUtilities.h" />
     <ClInclude Include="Application\GameObject\Dev\DevActor\Col\DevActorSphereColComponent.h" />
-    <ClInclude Include="Application\GameObject\Others\TitleUIManager\StageSelect\StageSelect.h" />
-    <ClInclude Include="Application\GameObject\Others\TitleUIManager\StageSelectRender\StageSelectRender.h" />
     <ClInclude Include="Engine\Graphics\GPUParticle\Material\FadeOut\ParticleFadeOut.h" />
     <ClInclude Include="Engine\Graphics\GPUParticle\Structure\MaterialStructure.h" />
     <ClInclude Include="externals\imgui\imgui_stdlib.h" />
@@ -1202,6 +874,7 @@
     <ClInclude Include="Engine\ResourceSystem\TextureLoader\TextureLoader.h" />
     <ClInclude Include="Engine\Graphics\PipeLineManager\ModelPipeLine\Decal\DecalPipeLine.h" />
     <ClInclude Include="Engine\Graphics\Material\Decal\Decal.h" />
+    <ClInclude Include="Application\GameObject\Terrain\Skydome\Skydome.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Application">
