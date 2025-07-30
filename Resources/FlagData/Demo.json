@@ -1,0 +1,6 @@
+{
+    "Game_Start" : false,
+    "Game_End" : false,
+    "Game_Clear" : false,
+    "Game_Over" : false
+}
