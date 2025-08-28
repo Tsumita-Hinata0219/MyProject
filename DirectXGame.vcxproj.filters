@@ -284,12 +284,10 @@
     <ClCompile Include="Engine\Graphics\RenderSystem\State\RenderState .cpp" />
     <ClCompile Include="Engine\Graphics\ShaderManager\ShaderManager.cpp" />
     <ClCompile Include="Engine\ResourceSystem\DescriptorHeap\DescriptorHeapManager.cpp" />
-    <ClCompile Include="Engine\ResourceSystem\Resources\Mesh\MeshResource.cpp" />
-    <ClCompile Include="Engine\ResourceSystem\Resources\Tex\TextureResource.cpp" />
-    <ClCompile Include="Engine\ResourceSystem\TextureLoader\TextureLoader.cpp" />
     <ClCompile Include="Engine\Graphics\PipeLineManager\ModelPipeLine\Decal\DecalPipeLine.cpp" />
     <ClCompile Include="Engine\Graphics\Material\Decal\Decal.cpp" />
     <ClCompile Include="Application\GameObject\Terrain\Skydome\Skydome.cpp" />
+    <ClCompile Include="Engine\ResourceSystem\Tex\TexManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application\System\GameManager\GameManager.h">
@@ -868,13 +866,12 @@
     <ClInclude Include="Engine\Graphics\RenderSystem\Structure\RenderStructure.h" />
     <ClInclude Include="Engine\Graphics\ShaderManager\ShaderManager.h" />
     <ClInclude Include="Engine\ResourceSystem\DescriptorHeap\DescriptorHeapManager.h" />
-    <ClInclude Include="Engine\ResourceSystem\Resources\IBaseResource.h" />
-    <ClInclude Include="Engine\ResourceSystem\Resources\Mesh\MeshResource.h" />
-    <ClInclude Include="Engine\ResourceSystem\Resources\Tex\TextureResource.h" />
-    <ClInclude Include="Engine\ResourceSystem\TextureLoader\TextureLoader.h" />
     <ClInclude Include="Engine\Graphics\PipeLineManager\ModelPipeLine\Decal\DecalPipeLine.h" />
     <ClInclude Include="Engine\Graphics\Material\Decal\Decal.h" />
     <ClInclude Include="Application\GameObject\Terrain\Skydome\Skydome.h" />
+    <ClInclude Include="Engine\ResourceSystem\Tex\TexManager.h" />
+    <ClInclude Include="Engine\ResourceSystem\Buffer\BufferManager.h" />
+    <ClInclude Include="Engine\ResourceSystem\Resources\ResourceManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Application">
