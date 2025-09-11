@@ -268,7 +268,10 @@ copy "$(WindowsSdkDir)bin\$(TargetPlatformVersion)\x64\dxil.dll" "$(TargetDir)dx
     <ClCompile Include="Engine\Physics\Collision\Collider\CollisionSphere.cpp" />
     <ClCompile Include="Engine\Physics\Collision\Collider\IEntityCollider.cpp" />
     <ClCompile Include="Engine\Platform\WinApp\WinApp.cpp" />
+    <ClCompile Include="Engine\ResourceSystem\Buff\BufferResource.cpp" />
+    <ClCompile Include="Engine\ResourceSystem\DescAllocator\DescriptorAllocator.cpp" />
     <ClCompile Include="Engine\ResourceSystem\DescriptorHeap\DescriptorHeapManager.cpp" />
+    <ClCompile Include="Engine\ResourceSystem\Resources\TextureResource.cpp" />
     <ClCompile Include="Engine\ResourceSystem\Tex\TexManager.cpp" />
     <ClCompile Include="Engine\Resource\CreateResource\CreateResource.cpp" />
     <ClCompile Include="Engine\Entity\Component\Render\IRenderComponent.cpp" />
@@ -538,9 +541,13 @@ copy "$(WindowsSdkDir)bin\$(TargetPlatformVersion)\x64\dxil.dll" "$(TargetDir)dx
     <ClInclude Include="Engine\Physics\Collision\Intersects\CollisionIntersects.h" />
     <ClInclude Include="Engine\Physics\Collision\Manager\CollisionManager.h" />
     <ClInclude Include="Engine\Platform\WinApp\WinApp.h" />
-    <ClInclude Include="Engine\ResourceSystem\Buffer\BufferManager.h" />
+    <ClInclude Include="Engine\ResourceSystem\Buff\BufferResource.h" />
+    <ClInclude Include="Engine\ResourceSystem\DescAllocator\DescriptorAllocator.h" />
     <ClInclude Include="Engine\ResourceSystem\DescriptorHeap\DescriptorHeapManager.h" />
+    <ClInclude Include="Engine\ResourceSystem\Resources\DeferredReleaseQueue.h" />
+    <ClInclude Include="Engine\ResourceSystem\Resources\ResourceHandle.h" />
     <ClInclude Include="Engine\ResourceSystem\Resources\ResourceManager.h" />
+    <ClInclude Include="Engine\ResourceSystem\Resources\TextureResource.h" />
     <ClInclude Include="Engine\ResourceSystem\Tex\TexManager.h" />
     <ClInclude Include="Engine\Resource\CreateResource\CreateResource.h" />
     <ClInclude Include="Engine\Entity\Component\Render\IRenderComponent.h" />

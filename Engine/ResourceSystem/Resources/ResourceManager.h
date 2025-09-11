@@ -29,12 +29,18 @@ public:
 	/// </summary>
 	void Init();
 
+	/// <summary>
+	/// リソース登録
+	/// </summary>
+	void Register();
 	void Register();
 
 
-
-
 private:
+
+	// リソースリスト配列
+	std::list<Microsoft::WRL::ComPtr<ID3D12Resource>> resource_;
+
 
 	 
 };
