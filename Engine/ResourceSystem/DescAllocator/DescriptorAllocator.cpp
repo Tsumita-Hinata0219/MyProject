@@ -2,7 +2,7 @@
 #include "Core/DirectXManager/DirectXManager.h"
 
 
-void DescriptorAllocator::Init(uint32_t numDescriptors)
+void DescriptorAllocator::Init(uint32_t numDescriptors) 
 {
     D3D12_DESCRIPTOR_HEAP_DESC desc = {};
     desc.NumDescriptors = numDescriptors;
