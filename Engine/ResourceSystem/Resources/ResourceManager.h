@@ -6,11 +6,25 @@
 #include <d3dx12.h>
 #include <cassert>
 #include <map>
+#include <unordered_map>
 #include<vector>
 
 
 /* リソース管理クラス */
 class ResourceManager {
+
+public:
+
+	enum class ResourceType {
+		DYNAMIC,
+		STATIC,
+		MODEL,
+	};
+	struct ResourceInfo {
+		std::shared_ptr<ID3D12Resource> resource;
+		ResourceType type;
+		std::string filePath;
+	};
 
 public:
 
@@ -29,18 +43,7 @@ public:
 	/// </summary>
 	void Init();
 
-	/// <summary>
-	/// リソース登録
-	/// </summary>
-	void Register();
-	void Register();
-
 
 private:
-
-	// リソースリスト配列
-	std::list<Microsoft::WRL::ComPtr<ID3D12Resource>> resource_;
-
-
-	 
+	std::unordered_map<uint32_t, ResourceInfo> resources_;
 };

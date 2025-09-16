@@ -283,14 +283,9 @@
     <ClCompile Include="Engine\Graphics\RenderSystem\Loader\RenderDataLoader.cpp" />
     <ClCompile Include="Engine\Graphics\RenderSystem\State\RenderState .cpp" />
     <ClCompile Include="Engine\Graphics\ShaderManager\ShaderManager.cpp" />
-    <ClCompile Include="Engine\ResourceSystem\DescriptorHeap\DescriptorHeapManager.cpp" />
     <ClCompile Include="Engine\Graphics\PipeLineManager\ModelPipeLine\Decal\DecalPipeLine.cpp" />
     <ClCompile Include="Engine\Graphics\Material\Decal\Decal.cpp" />
     <ClCompile Include="Application\GameObject\Terrain\Skydome\Skydome.cpp" />
-    <ClCompile Include="Engine\ResourceSystem\Tex\TexManager.cpp" />
-    <ClCompile Include="Engine\ResourceSystem\DescAllocator\DescriptorAllocator.cpp" />
-    <ClCompile Include="Engine\ResourceSystem\Buff\BufferResource.cpp" />
-    <ClCompile Include="Engine\ResourceSystem\Resources\TextureResource.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application\System\GameManager\GameManager.h">
@@ -868,17 +863,10 @@
     <ClInclude Include="Engine\Graphics\RenderSystem\State\RenderState .h" />
     <ClInclude Include="Engine\Graphics\RenderSystem\Structure\RenderStructure.h" />
     <ClInclude Include="Engine\Graphics\ShaderManager\ShaderManager.h" />
-    <ClInclude Include="Engine\ResourceSystem\DescriptorHeap\DescriptorHeapManager.h" />
     <ClInclude Include="Engine\Graphics\PipeLineManager\ModelPipeLine\Decal\DecalPipeLine.h" />
     <ClInclude Include="Engine\Graphics\Material\Decal\Decal.h" />
     <ClInclude Include="Application\GameObject\Terrain\Skydome\Skydome.h" />
-    <ClInclude Include="Engine\ResourceSystem\Tex\TexManager.h" />
     <ClInclude Include="Engine\ResourceSystem\Resources\ResourceManager.h" />
-    <ClInclude Include="Engine\ResourceSystem\Resources\ResourceHandle.h" />
-    <ClInclude Include="Engine\ResourceSystem\Resources\DeferredReleaseQueue.h" />
-    <ClInclude Include="Engine\ResourceSystem\DescAllocator\DescriptorAllocator.h" />
-    <ClInclude Include="Engine\ResourceSystem\Buff\BufferResource.h" />
-    <ClInclude Include="Engine\ResourceSystem\Resources\TextureResource.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Application">
