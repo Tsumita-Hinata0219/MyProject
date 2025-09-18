@@ -255,6 +255,7 @@ copy "$(WindowsSdkDir)bin\$(TargetPlatformVersion)\x64\dxil.dll" "$(TargetDir)dx
     <ClCompile Include="Engine\Graphics\RenderSystem\Loader\RenderDataLoader.cpp" />
     <ClCompile Include="Engine\Graphics\RenderSystem\State\RenderState .cpp" />
     <ClCompile Include="Engine\Graphics\ShaderManager\ShaderManager.cpp" />
+    <ClCompile Include="Engine\Loader\Texture\TextureLoader.cpp" />
     <ClCompile Include="Engine\Physics\CollisionSystem\Collider\Interface\ICollider.cpp" />
     <ClCompile Include="Engine\Physics\CollisionSystem\Collider\Shape\AABB\AABBCollider.cpp" />
     <ClCompile Include="Engine\Physics\CollisionSystem\Collider\Shape\Sphere\SphereCollider.cpp" />
@@ -268,6 +269,7 @@ copy "$(WindowsSdkDir)bin\$(TargetPlatformVersion)\x64\dxil.dll" "$(TargetDir)dx
     <ClCompile Include="Engine\Physics\Collision\Collider\CollisionSphere.cpp" />
     <ClCompile Include="Engine\Physics\Collision\Collider\IEntityCollider.cpp" />
     <ClCompile Include="Engine\Platform\WinApp\WinApp.cpp" />
+    <ClCompile Include="Engine\ResourceSystem\Tex\Manager\TexManager.cpp" />
     <ClCompile Include="Engine\Resource\CreateResource\CreateResource.cpp" />
     <ClCompile Include="Engine\Entity\Component\Render\IRenderComponent.cpp" />
     <ClCompile Include="Engine\Entity\Manager\GameEntityManager.cpp" />
@@ -517,6 +519,8 @@ copy "$(WindowsSdkDir)bin\$(TargetPlatformVersion)\x64\dxil.dll" "$(TargetDir)dx
     <ClInclude Include="Engine\Graphics\RenderSystem\State\RenderState .h" />
     <ClInclude Include="Engine\Graphics\RenderSystem\Structure\RenderStructure.h" />
     <ClInclude Include="Engine\Graphics\ShaderManager\ShaderManager.h" />
+    <ClInclude Include="Engine\Loader\Model\ModelLoader.h" />
+    <ClInclude Include="Engine\Loader\Texture\TextureLoader.h" />
     <ClInclude Include="Engine\Physics\CollisionSystem\Collider\ColliderConfig.h" />
     <ClInclude Include="Engine\Physics\CollisionSystem\Collider\Interface\ICollider.h" />
     <ClInclude Include="Engine\Physics\CollisionSystem\Collider\Shape\AABB\AABBCollider.h" />
@@ -536,7 +540,9 @@ copy "$(WindowsSdkDir)bin\$(TargetPlatformVersion)\x64\dxil.dll" "$(TargetDir)dx
     <ClInclude Include="Engine\Physics\Collision\Intersects\CollisionIntersects.h" />
     <ClInclude Include="Engine\Physics\Collision\Manager\CollisionManager.h" />
     <ClInclude Include="Engine\Platform\WinApp\WinApp.h" />
-    <ClInclude Include="Engine\ResourceSystem\Resources\ResourceManager.h" />
+    <ClInclude Include="Engine\ResourceSystem\Interfacee\IResource.h" />
+    <ClInclude Include="Engine\ResourceSystem\Tex\Manager\TexManager.h" />
+    <ClInclude Include="Engine\ResourceSystem\Tex\Resource\TextureResource.h" />
     <ClInclude Include="Engine\Resource\CreateResource\CreateResource.h" />
     <ClInclude Include="Engine\Entity\Component\Render\IRenderComponent.h" />
     <ClInclude Include="Engine\Entity\Entity.h" />

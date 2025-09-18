@@ -286,6 +286,8 @@
     <ClCompile Include="Engine\Graphics\PipeLineManager\ModelPipeLine\Decal\DecalPipeLine.cpp" />
     <ClCompile Include="Engine\Graphics\Material\Decal\Decal.cpp" />
     <ClCompile Include="Application\GameObject\Terrain\Skydome\Skydome.cpp" />
+    <ClCompile Include="Engine\Loader\Texture\TextureLoader.cpp" />
+    <ClCompile Include="Engine\ResourceSystem\Tex\Manager\TexManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application\System\GameManager\GameManager.h">
@@ -866,7 +868,11 @@
     <ClInclude Include="Engine\Graphics\PipeLineManager\ModelPipeLine\Decal\DecalPipeLine.h" />
     <ClInclude Include="Engine\Graphics\Material\Decal\Decal.h" />
     <ClInclude Include="Application\GameObject\Terrain\Skydome\Skydome.h" />
-    <ClInclude Include="Engine\ResourceSystem\Resources\ResourceManager.h" />
+    <ClInclude Include="Engine\Loader\Model\ModelLoader.h" />
+    <ClInclude Include="Engine\Loader\Texture\TextureLoader.h" />
+    <ClInclude Include="Engine\ResourceSystem\Tex\Manager\TexManager.h" />
+    <ClInclude Include="Engine\ResourceSystem\Interfacee\IResource.h" />
+    <ClInclude Include="Engine\ResourceSystem\Tex\Resource\TextureResource.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Application">
