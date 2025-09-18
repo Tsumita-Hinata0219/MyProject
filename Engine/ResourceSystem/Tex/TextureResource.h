@@ -2,18 +2,12 @@
 
 #include <d3dx12.h>
 
-#include "../../Interfacee/IResource.h"
+#include "../Interface/IResource.h"
 #include "Math/MyMath.h"
 
 /* テクスチャ用の実体クラス */
 class TexResource : public IResource {
 	
-private:
-
-	Microsoft::WRL::ComPtr<ID3D12Resource> gpuResource_;
-	uint32_t descriptorIndex_ = 0;
-	Vector2 size_{};
-
 public:
 
 	/// <summary>
@@ -30,7 +24,7 @@ public:
 		size_  = {};
 	}
 
-#pragma region ===== accessor アクセッサ =====
+#pragma region accessor
 
 	// GPUリソースの参照を取得
 	ID3D12Resource* GetResource() const { return gpuResource_.Get(); }
@@ -48,4 +42,9 @@ public:
 
 #pragma endregion
 
+private:
+
+	Microsoft::WRL::ComPtr<ID3D12Resource> gpuResource_;
+	uint32_t descriptorIndex_ = 0;
+	Vector2 size_{};
 };

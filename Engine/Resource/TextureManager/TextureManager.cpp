@@ -205,7 +205,7 @@ DirectX::ScratchImage TextureManager::CreateMipImage(const std::string& filePath
 
 		// テクスチャファイルを読み込んでプログラムで扱えるようにする
 		// Textureデータを読み込む
-		filePathw = ConverString(filePath);
+		filePathw = ConvertString(filePath);
 		HRESULT hr = DirectX::LoadFromWICFile(filePathw.c_str(), DirectX::WIC_FLAGS_FORCE_SRGB, nullptr, image);
 		assert(SUCCEEDED(hr));
 
@@ -222,7 +222,7 @@ DirectX::ScratchImage TextureManager::CreateMipImage(const std::string& filePath
 
 		// テクスチャファイルを読み込んでプログラムで扱えるようにする
 		// Textureデータを読み込む
-		filePathw = ConverString(filePath);
+		filePathw = ConvertString(filePath);
 		HRESULT hr = DirectX::LoadFromDDSFile(filePathw.c_str(), DirectX::DDS_FLAGS_NONE, nullptr, image);
 		assert(SUCCEEDED(hr));
 

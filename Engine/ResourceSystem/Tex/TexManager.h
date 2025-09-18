@@ -10,7 +10,7 @@
 #include<vector>
 
 #include "Math/MyMath.h"
-#include "ResourceSystem/Tex/Resource/TextureResource.h"
+#include "TextureResource.h"
 
 
 /* テクスチャリソース管理クラス */
@@ -43,9 +43,35 @@ public:
 	/// </summary>
 	void Finalize();
 
+	/// <summary>
+	/// Mapに登録
+	/// </summary>
+	void Register(uint32_t key, std::unique_ptr<TexResource> resource) {
+		// keyで検索し引っかかるならreturn
+		auto it = texResourceMap_.find(key);
+		if (it != texResourceMap_.end()) {
+			return;
+		}
+
+		// なければMapに追加
+		if (resource) {
+			texResourceMap_[key] = std::move(resource);
+		}
+	}
+
+	/// <summary>
+	/// Map内に存在するか
+	/// </summary>
+	bool Exists(uint32_t key) const {
+		return texResourceMap_.find(key) != texResourceMap_.end();
+	}
+
+#pragma region accessor
+
+#pragma endregion
+
 private:
 
 	// テクスチャのコンテナマップ
-
+	std::unordered_map<uint32_t, std::unique_ptr<TexResource>> texResourceMap_;
 };
-

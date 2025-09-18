@@ -25,7 +25,7 @@
 /// char , std::string
 /// -------------------------------------------------------------------------
 // string->wstring
-std::wstring ConverString(const std::string& str);
+std::wstring ConvertString(const std::string& str);
 // wstring->string
 std::string ConvertString(const std::wstring& str);
 // wstring->string

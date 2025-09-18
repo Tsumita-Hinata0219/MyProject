@@ -6,7 +6,7 @@ namespace fs = std::filesystem;
 /// char , std::string
 /// -------------------------------------------------------------------------
 // string->wstring
-std::wstring ConverString(const std::string& str) {
+std::wstring ConvertString(const std::string& str) {
 	if (str.empty())
 	{
 		return std::wstring();
