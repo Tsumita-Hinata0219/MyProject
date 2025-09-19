@@ -45,7 +45,7 @@ void TextureLoader::Load(const std::string& rootPath, const std::string& fileNam
 	if (ext == TexFileExt::PNG.first || ext == TexFileExt::JPEG.first) {
 		LoadPNGorJPEG(fullPath, resource.get());
 	}
-	else if (ext == TexFileExt::JPEG.first) {
+	else if (ext == TexFileExt::JPEG.first) { 
 	}
 	else if (ext == TexFileExt::DDS.first) {
 		LoadDDS(fullPath, resource.get());
