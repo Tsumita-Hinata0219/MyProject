@@ -541,6 +541,7 @@ copy "$(WindowsSdkDir)bin\$(TargetPlatformVersion)\x64\dxil.dll" "$(TargetDir)dx
     <ClInclude Include="Engine\Physics\Collision\Intersects\CollisionIntersects.h" />
     <ClInclude Include="Engine\Physics\Collision\Manager\CollisionManager.h" />
     <ClInclude Include="Engine\Platform\WinApp\WinApp.h" />
+    <ClInclude Include="Engine\ResourceSystem\API\ResourceAPI.h" />
     <ClInclude Include="Engine\ResourceSystem\Descriptor\DescriptorHeapManager.h" />
     <ClInclude Include="Engine\ResourceSystem\Interface\IResource.h" />
     <ClInclude Include="Engine\ResourceSystem\Tex\TexManager.h" />

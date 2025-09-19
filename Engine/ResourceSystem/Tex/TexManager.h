@@ -7,6 +7,7 @@
 #include <d3dx12.h>
 #include <cassert>
 #include <map>
+#include <utility>
 #include<vector>
 
 #include "Math/MyMath.h"
@@ -66,9 +67,16 @@ public:
 		return texResourceMap_.find(key) != texResourceMap_.end();
 	}
 
-#pragma region accessor
-
-#pragma endregion
+	/// <summary>
+	/// uint32_t型のキーを返す
+	/// </summary>
+	const uint32_t GetKey(uint32_t key) const {
+		auto it = texResourceMap_.find(key);
+		if (it != texResourceMap_.end()) {
+			return it->first; // mapのキー
+		}
+		throw std::runtime_error("Key not found"); 
+	}
 
 private:
 

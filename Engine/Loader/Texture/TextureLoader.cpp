@@ -29,7 +29,7 @@ void TextureLoader::Load(const std::string& rootPath, const std::string& fileNam
 	// フルファイルパス
 	std::string fullPath = "Resources/" + rootPath + "/" + fileName;
 	// アクセスキー
-	std::uint32_t key = FNV1aHash(fullPath);
+	std::uint32_t key = FNV1aHash(fileName);
 
 	// keyが既存ならreturn
 	if (texMgr_->Exists(key)) {
@@ -94,6 +94,7 @@ void TextureLoader::LoadPNGorJPEG(const std::string& path, TexResource* resource
 	resource->SetResource(d3dResource.Get());
 	resource->SetDescriptorIndex(descIndex);
 	resource->SetSize(Vector2{static_cast<float>(metadata.width),  static_cast<float>(metadata.height)});
+	resource->SetFullPath(path);
 }
 
 void TextureLoader::LoadDDS(const std::string& path, TexResource* resource)

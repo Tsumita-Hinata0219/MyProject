@@ -875,6 +875,7 @@
     <ClInclude Include="Engine\ResourceSystem\Interface\IResource.h" />
     <ClInclude Include="Engine\ResourceSystem\Tex\TextureResource.h" />
     <ClInclude Include="Engine\ResourceSystem\Descriptor\DescriptorHeapManager.h" />
+    <ClInclude Include="Engine\ResourceSystem\API\ResourceAPI.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Application">

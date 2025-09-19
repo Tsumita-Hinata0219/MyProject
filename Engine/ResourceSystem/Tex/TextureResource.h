@@ -40,6 +40,10 @@ public:
 	const Vector2& GetSize() const { return size_; }
 	void SetSize(const Vector2& size) { size_ = size; }
 
+	// フルパスを取得/設定
+	const std::string& GetFullPath() const { return fullPath_; }
+	void SetFullPath(const std::string& path) { fullPath_ = path; }
+
 #pragma endregion
 
 private:
@@ -47,4 +51,5 @@ private:
 	Microsoft::WRL::ComPtr<ID3D12Resource> gpuResource_;
 	uint32_t descriptorIndex_ = 0;
 	Vector2 size_{};
+	std::string fullPath_{};
 };
