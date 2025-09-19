@@ -14,10 +14,10 @@
 #include "ResourceSystem/Tex/TextureResource.h"
 #include <DirectXTex.h>
 
-
 // 前方宣言
  class TexManager;
  class DirectXManager;
+ class DescriptorHeapManager;
  class CommandManager;
 
 namespace TexFileExt {
@@ -99,6 +99,7 @@ private:
 
 	TexManager* texMgr_ = nullptr;
 	DirectXManager* dxMgr_ = nullptr;
+	DescriptorHeapManager* descHeapMgr_ = nullptr;
 	CommandManager* comdMgr_  = nullptr;
 
 	Microsoft::WRL::ComPtr<ID3D12Fence> fence_;

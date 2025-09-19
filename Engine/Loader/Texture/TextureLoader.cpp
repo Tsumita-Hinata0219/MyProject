@@ -1,5 +1,6 @@
 #include "TextureLoader.h"
 #include "Core/DirectXManager/DirectXManager.h"
+#include "ResourceSystem/Descriptor/DescriptorHeapManager.h"
 #include "Graphics/CommandManager/CommandManager.h"
 #include "ResourceSystem/Tex/TexManager.h"
 
@@ -7,6 +8,7 @@ TextureLoader::TextureLoader()
 {
 	texMgr_ = TexManager::GetInstance();
 	dxMgr_ = DirectXManager::GetInstance();
+	descHeapMgr_ = DescriptorHeapManager::GetInstance();
 	comdMgr_ = CommandManager::GetInstance();
 
 	// Deviceの取得
@@ -86,7 +88,7 @@ void TextureLoader::LoadPNGorJPEG(const std::string& path, TexResource* resource
 	ExeCommand();
 
 	// ========== 9. ディスクリプタ割り当て ==========
-	uint32_t descIndex = 0;  // TODO
+	uint32_t descIndex = descHeapMgr_->CreateTextureSRV(d3dResource, metadata);
 
 	// ========== 10. 各種データの設定 ==========
 	resource->SetResource(d3dResource.Get());

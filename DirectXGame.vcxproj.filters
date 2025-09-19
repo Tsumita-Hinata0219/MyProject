@@ -288,6 +288,7 @@
     <ClCompile Include="Application\GameObject\Terrain\Skydome\Skydome.cpp" />
     <ClCompile Include="Engine\Loader\Texture\TextureLoader.cpp" />
     <ClCompile Include="Engine\ResourceSystem\Tex\TexManager.cpp" />
+    <ClCompile Include="Engine\ResourceSystem\Descriptor\DescriptorHeapManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application\System\GameManager\GameManager.h">
@@ -873,6 +874,7 @@
     <ClInclude Include="Engine\ResourceSystem\Tex\TexManager.h" />
     <ClInclude Include="Engine\ResourceSystem\Interface\IResource.h" />
     <ClInclude Include="Engine\ResourceSystem\Tex\TextureResource.h" />
+    <ClInclude Include="Engine\ResourceSystem\Descriptor\DescriptorHeapManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Application">
