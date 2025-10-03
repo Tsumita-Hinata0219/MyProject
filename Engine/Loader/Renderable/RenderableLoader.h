@@ -52,6 +52,11 @@ private:
 	uint32_t LoadMesh(uint32_t key, const std::string& fullPath, const aiScene* scene);
 
 	/// <summary>
+	/// ノードの読み込み処理
+	/// </summary>
+	MeshNode ReadNode(const aiNode* node);
+
+	/// <summary>
 	/// マテリアルを読み込み
 	/// </summary>
 	uint32_t LoadMaterial(const std::string& path, const aiScene* scene);

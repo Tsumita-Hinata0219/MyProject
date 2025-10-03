@@ -17,7 +17,7 @@ struct MeshNode {
     QuaternionTransform transform;
     Matrix4x4 localMatrix;
     std::string name;
-    std::vector<Node> Children;
+    std::vector<MeshNode> Children;
 };
 struct MeshInfo {
     std::vector<MeshVertex> vertices;

@@ -2,125 +2,118 @@
 
 void RenderableLoader::Load(const std::string& rootPath, const std::string& fileName)
 {
-	// フルファイルパス
-	std::string fullPath = "Resources/" + rootPath + "/" + fileName;
-	// アクセスキー
-	std::uint32_t key = FNV1aHash(fileName);
+    // フルファイルパス（重複しないよう修正）
+    std::string fullPath = "Resources/" + rootPath + "/" + fileName;
+    std::uint32_t key = FNV1aHash(fileName);
 
-	// keyが既存ならreturn
-	if (renderableInfoMap_.find(key) != renderableInfoMap_.end()) {
-		return;
-	}
+    // 既存ならreturn
+    if (renderableInfoMap_.find(key) != renderableInfoMap_.end()) {
+        return;
+    }
 
-	// 読み込み処理を行う
-	RenderableInfo info = {};
+    try {
+        RenderableInfo info = {};
 
-	// asssimpでobjを読む
-	Assimp::Importer importer;
-	string file = ("Resources/" + fullPath);
-	//三角形の並び順を逆にする。UVをフリップする(texcoord.y = 1.0f - texcoord.y;の処理)
-	const aiScene* scene = importer.ReadFile(file.c_str(), aiProcess_FlipWindingOrder | aiProcess_FlipUVs);
-	assert(scene->HasMeshes()); // メッシュがないのは対応しない
+        // Assimpでobj/gltf等を読む
+        Assimp::Importer importer;
+        const aiScene* scene = importer.ReadFile(fullPath.c_str(), aiProcess_FlipWindingOrder | aiProcess_FlipUVs);
+        if (!scene || !scene->HasMeshes()) {
+            throw std::runtime_error("Scene has no meshes or failed to load: " + fullPath);
+        }
 
-	// Meshの読み込み処理
-	info.meshKey = LoadMesh(key, fullPath, scene);
-	// Materialの読み込み
-	info.texKey = LoadMaterial(rootPath, scene);
+        // Meshの読み込み
+        info.meshKey = LoadMesh(key, fullPath, scene);
+        // Materialの読み込み
+        info.texKey = LoadMaterial(rootPath, scene);
 
+        // 管理マップに登録
+        renderableInfoMap_[key] = info;
+        // ログ出力
+        Log("Renderable loaded: " + fullPath);
+    }
+    catch (const std::exception& e) {
+        Log(std::string("Error loading renderable: ") + e.what());
+    }
 }
 
 uint32_t RenderableLoader::LoadMesh(uint32_t key, const std::string& fullPath, const aiScene* scene)
 {
-	MeshInfo meshInfo{};
+    MeshInfo meshInfo{};
+    for (uint32_t meshIndex = 0; meshIndex < scene->mNumMeshes; ++meshIndex) {
+        aiMesh* mesh = scene->mMeshes[meshIndex];
+        if (!mesh->HasNormals() || !mesh->HasTextureCoords(0)) {
+            throw std::runtime_error("Mesh missing normals or texture coords: " + fullPath);
+        }
+        meshInfo.vertices.resize(mesh->mNumVertices);
 
-	// ========== 頂点データ作成 ==========
-	for (uint32_t meshIndex = 0; meshIndex < scene->mNumMeshes; ++meshIndex) {
-		aiMesh* mesh = scene->mMeshes[meshIndex];
-		assert(mesh->HasNormals());
-		assert(mesh->HasTextureCoords(0));
+        // 頂点解析
+        for (uint32_t vertexIndex = 0; vertexIndex < mesh->mNumVertices; vertexIndex++) {
+            aiVector3D& position = mesh->mVertices[vertexIndex];
+            aiVector3D& normal = mesh->mNormals[vertexIndex];
+            aiVector3D& texcoord = mesh->mTextureCoords[0][vertexIndex];
 
-		// 頂点分のサイズに変える
-		meshInfo.vertices.resize(mesh->mNumVertices);
+            meshInfo.vertices[vertexIndex].position = { -position.x, position.y, position.z, 1.0f };
+            meshInfo.vertices[vertexIndex].normal = { -normal.x, normal.y, normal.z };
+            meshInfo.vertices[vertexIndex].texCoord = { texcoord.x, texcoord.y };
+        }
 
-		// Verticesを解析する
-		for (uint32_t vertexIndex = 0; vertexIndex < mesh->mNumVertices; vertexIndex) {
-			aiVector3D& position = mesh->mVertices[vertexIndex];
-			aiVector3D& normal = mesh->mNormals[vertexIndex];
-			aiVector3D& texcoord = mesh->mTextureCoords[0][vertexIndex];
+        // インデックス解析
+        for (uint32_t faceIndex = 0; faceIndex < mesh->mNumFaces; ++faceIndex) {
+            aiFace& face = mesh->mFaces[faceIndex];
+            if (face.mNumIndices != 3) {
+                throw std::runtime_error("Non-triangle face detected");
+            }
+            for (uint32_t element = 0; element < face.mNumIndices; ++element) {
+                uint32_t vertexIndex = face.mIndices[element];
+                meshInfo.indices.push_back(vertexIndex);
+            }
+        }
 
-			// 右手系->左手系への変換
-			meshInfo.vertices[vertexIndex].position = { -position.x, position.y, position.z, 1.0f };
-			meshInfo.vertices[vertexIndex].normal = { -normal.x, normal.y, normal.z };
-			meshInfo.vertices[vertexIndex].texCoord = { texcoord.x, texcoord.y };
-		}
+        // ノード階層構築（再帰）
+        meshInfo.rootNode = ReadNode(scene->mRootNode);
+    }
 
-		// Indexを解析する 
-		for (uint32_t faceIndex = 0; faceIndex < mesh->mNumFaces; ++faceIndex) {
-			aiFace& face = mesh->mFaces[faceIndex];
-			assert(face.mNumIndices == 3);
+    auto resource = std::make_unique<MeshResource>();
+    resource->SetMeshInfo(meshInfo);
+    resource->SetFullPath(fullPath);
 
-			for (uint32_t element = 0; element < face.mNumIndices; ++element) {
-				uint32_t vertexIndex = face.mIndices[element];
-				meshInfo.indices.push_back(vertexIndex);
-			}
-		}
+    MeshManager::GetInstance()->Register(key, std::move(resource));
+    return MeshManager::GetInstance()->GetKey(key);
+}
 
-		// TODO Nodeの読み込み処理を作る
-		aiNode* node = scene->mRootNode;
-		aiMatrix4x4 aiLocalMatrix = node->mTransformation; // nodeのlocalMatrixを取得
-		aiLocalMatrix.Transpose(); // 列ベクトル形式を行ベクトル形式に転置
+MeshNode RenderableLoader::ReadNode(const aiNode* node) {
+    MeshNode result;
+    aiMatrix4x4 aiLocalMatrix = node->mTransformation;
+    aiLocalMatrix.Transpose();
 
-		aiVector3D scale, translate;
-		aiQuaternion rotate;
+    aiVector3D scale, translate;
+    aiQuaternion rotate;
+    node->mTransformation.Decompose(scale, rotate, translate);
 
-		// assimpの行列からSRTを抽出する関数を利用
-		node->mTransformation.Decompose(scale, rotate, translate);
+    result.transform.scale = { scale.x, scale.y, scale.z };
+    result.transform.rotate = { rotate.w, rotate.x, -rotate.y, -rotate.z };
+    result.transform.translate = { -translate.x, translate.y, translate.z };
+    result.localMatrix = MakeAffineMatrix(result.transform.scale, result.transform.rotate, result.transform.translate);
 
-		// scaleはそのまま
-		meshInfo.rootNode.transform.scale = { scale.x, scale.y,scale.z };
-		// x軸を反転、さらに回転方向が逆なので軸を反転させる
-		meshInfo.rootNode.transform.rotate = { rotate.w, rotate.x, -rotate.y, -rotate.z };
-		// x軸を反転
-		meshInfo.rootNode.transform.translate = { -translate.x, translate.y,translate.z };
-
-		// 上記で読み込んだ情報を元にLocalMatrixを求める
-		meshInfo.rootNode.localMatrix = MakeAffineMatrix(
-			meshInfo.rootNode.transform.scale,
-			meshInfo.rootNode.transform.rotate,
-			meshInfo.rootNode.transform.translate);
-
-		meshInfo.rootNode.name = node->mName.C_Str(); // Mode名を格納
-		meshInfo.rootNode.Children.resize(node->mNumChildren); // 子供の数だけ確保
-		for (uint32_t childIndex = 0; childIndex < node->mNumChildren; ++childIndex) {
-			// 再帰的によんで階層構造を作っていく
-			//meshInfo.rootNode.Children[childIndex] = ReadNode(node->mChildren[childIndex]);
-		}
-	}
-
-	// 新しく作るresource
-	std::unique_ptr<MeshResource> resource = std::make_unique<MeshResource>();
-	// Dataの設定
-	resource->SetMeshInfo(meshInfo);
-	resource->SetFullPath(fullPath);
-
-	// Managerに登録
-	MeshManager::GetInstance()->Register(key, std::move(resource));
-
-	return MeshManager::GetInstance()->GetKey(key);
+    result.name = node->mName.C_Str();
+    result.Children.resize(node->mNumChildren);
+    for (uint32_t childIndex = 0; childIndex < node->mNumChildren; ++childIndex) {
+        result.Children[childIndex] = ReadNode(node->mChildren[childIndex]);
+    }
+    return result;
 }
 
 uint32_t RenderableLoader::LoadMaterial(const std::string& path, const aiScene* scene)
 {
-	for (uint32_t materialIndex = 0; materialIndex < scene->mNumMaterials; ++materialIndex) {
-		aiMaterial* material = scene->mMaterials[materialIndex];
+    for (uint32_t materialIndex = 0; materialIndex < scene->mNumMaterials; ++materialIndex) {
+        aiMaterial* material = scene->mMaterials[materialIndex];
 
-		if (material->GetTextureCount(aiTextureType_DIFFUSE) != 0) {
-			aiString texFileName;
-			material->GetTexture(aiTextureType_DIFFUSE, 0, &texFileName);
+        if (material->GetTextureCount(aiTextureType_DIFFUSE) != 0) {
+            aiString texFileName;
+            material->GetTexture(aiTextureType_DIFFUSE, 0, &texFileName);
 
-			return TextureLoader::GetInstance()->Load(path, texFileName.C_Str());
-		}
-	}
-	// 例外を投げて処理を中断
-	throw std::runtime_error("Diffuse texture not found in material: " + path);
+            return TextureLoader::GetInstance()->Load(path, texFileName.C_Str());
+        }
+    }
+    throw std::runtime_error("Diffuse texture not found in material: " + path);
 }
