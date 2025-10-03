@@ -12,6 +12,8 @@
 #include "Graphics/RenderSystem/Asset/GraphicAssetManager.h"
 #include "Graphics/PostEffect/IPostEffect/Absent/AbsentEffect.h"
 
+#include "ResourceSystem/API/ResourceAPI.h"
+
 #include "Scene/DebugScene/DebugScene.h"
 #include "Scene/DevScene/DevScene.h"
 

@@ -38,6 +38,8 @@ void DevScene::Initialize()
 	floor_->SetTranslate(Vector3{ 0.0f, -2.0f, 0.0f });
 
 	gameEntityManager_->Add_NewEntity(std::make_shared<DevActor>());
+
+	
 }
 
 
@@ -99,4 +101,7 @@ void DevScene::LoadData()
 {
 	auto graphicManager = RenderSystem::GraphicAssetManager::GetInstance();
 	graphicManager->LoadData("Obj/Dev/Axis", "Axis.obj");
+
+	ResourceAPI::Load<Tex>("Texture", "uvChecker.png");
+	ResourceAPI::Load<Mdl>("Obj/Dev/Axis", "Axis.obj");
 }

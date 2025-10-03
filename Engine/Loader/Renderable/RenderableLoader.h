@@ -24,7 +24,7 @@ class RenderableLoader {
 
 private: // シングルトン
 
-	RenderableLoader();
+	RenderableLoader() = default;
 	~RenderableLoader() = default;
 	RenderableLoader(const RenderableLoader&) = delete;
 	const RenderableLoader& operator=(const RenderableLoader&) = delete;

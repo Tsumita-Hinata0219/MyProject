@@ -275,6 +275,7 @@
     <ClCompile Include="externals\imguidocking\imgui_impl_win32.cpp" />
     <ClCompile Include="externals\imguidocking\imgui_tables.cpp" />
     <ClCompile Include="externals\imguidocking\imgui_widgets.cpp" />
+    <ClCompile Include="Engine\ResourceSystem\API\ResourceAPI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application\System\GameManager\GameManager.h">

@@ -105,4 +105,7 @@ private:
 	Microsoft::WRL::ComPtr<ID3D12Fence> fence_;
 	uint64_t fenceValue_ = 0;
 	HANDLE fenceEvent_{};
+
+	std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> pendingIntermediateResources_;
+	std::vector<UINT64> pendingFenceValues_;
 };

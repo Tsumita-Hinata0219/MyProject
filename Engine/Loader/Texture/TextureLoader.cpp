@@ -220,6 +220,10 @@ void  TextureLoader::UploadTextureData(Microsoft::WRL::ComPtr<ID3D12Resource>& t
 	barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_GENERIC_READ;
 
 	commands.List->ResourceBarrier(1, &barrier);
+
+	// Fence値と一緒に保存
+	pendingIntermediateResources_.push_back(intermediateResource);
+	pendingFenceValues_.push_back(fenceValue_);
 }
 
 void TextureLoader::ExeCommand()
@@ -248,6 +252,20 @@ void TextureLoader::ExeCommand()
 		fence_->SetEventOnCompletion(fenceValue_, fenceEvent_);
 		// イベントを待つ
 		WaitForSingleObject(fenceEvent_, INFINITE);
+	}
+
+	// Fence完了後にpendingIntermediateResources_を解放＋vectorから削除
+	for (size_t i = 0; i < pendingIntermediateResources_.size(); /* no ++ */) {
+		if (fence_->GetCompletedValue() >= pendingFenceValues_[i]) {
+			pendingIntermediateResources_[i].Reset();
+			// eraseで両方から削除
+			pendingIntermediateResources_.erase(pendingIntermediateResources_.begin() + i);
+			pendingFenceValues_.erase(pendingFenceValues_.begin() + i);
+			// eraseしたのでiはそのまま
+		}
+		else {
+			++i;
+		}
 	}
 
 	// 実行が完了したので、allocatorとcommandListをResetして次のコマンドを積めるようにする
