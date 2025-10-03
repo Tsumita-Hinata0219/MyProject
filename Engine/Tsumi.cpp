@@ -13,6 +13,7 @@ Tsumi::Tsumi()
 	audio_ = Audio::GetInstance();
 	descriptorMgr_ = DescriptorManager::GetInstance();
 	rtvMgr_ = RTVManager::GetInstance();
+	descriptorHeapMgr_ = DescriptorHeapManager::GetInstance();
 }
 
 void Tsumi::Initialize() {
@@ -43,6 +44,10 @@ void Tsumi::Initialize() {
 
 	// DescriptorManagerの初期化処理
 	descriptorMgr_->Init();
+
+	// DescriptorHeapManagerの初期化処理
+	descriptorHeapMgr_->Init();
+
 	texMgr_->LoadTexture("Texture", "uvChecker.png");
 }
 
@@ -59,13 +64,14 @@ void Tsumi::BeginFlame() {
 	imguiMgr_->BeginFrame();
 	input_->BeginFrame();
 	descriptorMgr_->BeginFrame();
+	descriptorHeapMgr_->BeginFrame();
 	rtvMgr_->BeginFrame();
 	pipeLineMgr_->PipeLineReset();
 }
 
 void Tsumi::EndFlame() {
-
-	// ImGuiの描画処理
+	
+	descriptorHeapMgr_->EndFrame();
 	imguiMgr_->EndFrame();
 }
 

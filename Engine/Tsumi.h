@@ -12,6 +12,7 @@
 #include "Resource/View/RTVManager/RTVManager.h"
 #include "Resource/View/SRVManager/SRVManager.h"
 
+#include "ResourceSystem/Descriptor/DescriptorHeapManager.h"
 
 /* Tsumiクラス */
 class Tsumi {
@@ -67,4 +68,5 @@ private:
 	DescriptorManager* descriptorMgr_ = nullptr;
 	RTVManager* rtvMgr_ = nullptr;
 
+	DescriptorHeapManager* descriptorHeapMgr_ = nullptr;
 };
