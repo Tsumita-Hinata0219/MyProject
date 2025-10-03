@@ -5,12 +5,12 @@
 // ======================
 template <>
 uint32_t ResourceAPI::Get<Tex>(const std::string& key) {
-	return TexManager::GetInstance()->GetKey(FNV1aHash(key));
+	return TexManager::GetInstance()->GetIDByString(key);
 }
 
 template <>
 uint32_t ResourceAPI::Get<Mdl>(const std::string& key) {
-	return MeshManager::GetInstance()->GetKey(FNV1aHash(key));
+	return MeshManager::GetInstance()->GetIDByString(key);
 }
 
 // ======================

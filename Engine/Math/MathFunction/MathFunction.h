@@ -42,8 +42,6 @@ std::vector<std::string> GetSubdirectories(const std::string& directoryPath);
 std::string FilterFileByExtension(const std::vector<std::string>& filenames, const std::string& extension);
 // 指定された拡張子を持つ最初のファイル名を返す関数
 std::string FindFirstFileWithExtension(const std::string& directoryPath, const std::string& extension);
-// std::string -> uint32_tに変換する独自ハッシュ
-std::uint32_t FNV1aHash(const std::string& str);
 
 
 

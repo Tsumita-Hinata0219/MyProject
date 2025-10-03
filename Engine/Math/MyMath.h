@@ -12,6 +12,7 @@
 
 #include "Utilities/RandomGenerator/RandomGenerator.h"
 #include "Utilities/TimedCall/TimedCall.h"
+#include "Utilities/IDMap/IDMap.h"
 
 #define _USE_MATH_DEFINES
 #include <math.h>

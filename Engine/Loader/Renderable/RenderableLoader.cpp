@@ -22,7 +22,7 @@ void RenderableLoader::Load(const std::string& rootPath, const std::string& file
         }
 
         // Meshの読み込み
-        info.meshKey = LoadMesh(key, fullPath, scene);
+        info.meshKey = LoadMesh(fileName, fullPath, scene);
         // Materialの読み込み
         info.texKey = LoadMaterial(rootPath, scene);
 
@@ -36,7 +36,7 @@ void RenderableLoader::Load(const std::string& rootPath, const std::string& file
     }
 }
 
-uint32_t RenderableLoader::LoadMesh(uint32_t key, const std::string& fullPath, const aiScene* scene)
+uint32_t RenderableLoader::LoadMesh(const std::string& fileName, const std::string& fullPath, const aiScene* scene)
 {
     MeshInfo meshInfo{};
     for (uint32_t meshIndex = 0; meshIndex < scene->mNumMeshes; ++meshIndex) {
@@ -77,8 +77,8 @@ uint32_t RenderableLoader::LoadMesh(uint32_t key, const std::string& fullPath, c
     resource->SetMeshInfo(meshInfo);
     resource->SetFullPath(fullPath);
 
-    MeshManager::GetInstance()->Register(key, std::move(resource));
-    return MeshManager::GetInstance()->GetKey(key);
+    MeshManager::GetInstance()->Register(fileName, std::move(resource));
+    return MeshManager::GetInstance()->GetIDByString(fileName);
 }
 
 MeshNode RenderableLoader::ReadNode(const aiNode* node) {

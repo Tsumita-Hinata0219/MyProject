@@ -142,17 +142,6 @@ std::string FindFirstFileWithExtension(const std::string& directoryPath, const s
 	return "";
 }
 
-// std::string -> uint32_tに変換する独自ハッシュ
-std::uint32_t FNV1aHash(const std::string& str)
-{
-	std::uint32_t hash = 2166136261u;
-	for (char c : str) {
-		hash ^= static_cast<unsigned char>(c);
-		hash *= 16777619u;
-	}
-	return hash;
-}
-
 
 
 

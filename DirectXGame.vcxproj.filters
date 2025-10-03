@@ -849,6 +849,7 @@
     <ClInclude Include="externals\imguidocking\imstb_rectpack.h" />
     <ClInclude Include="externals\imguidocking\imstb_textedit.h" />
     <ClInclude Include="externals\imguidocking\imstb_truetype.h" />
+    <ClInclude Include="Engine\Utilities\IDMap\IDMap.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Application">

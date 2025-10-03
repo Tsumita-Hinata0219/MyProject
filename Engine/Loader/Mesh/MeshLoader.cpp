@@ -10,17 +10,15 @@ uint32_t MeshLoader::Load(const std::string& rootPath, const std::string& fileNa
 {
 	// フルファイルパス
 	std::string fullPath = "Resources/" + rootPath + "/" + fileName;
-	// アクセスキー
-	std::uint32_t key = FNV1aHash(fileName);
 
-	// keyが既存ならreturn
-	if (meshMgr_->Exists(key)) {
-		return key;
+	// すでに登録済みなら、そのIDを返す
+	if (meshMgr_->Exists(fileName)) {
+		return meshMgr_->GetIDByString(fileName);
 	}
 
-	// 読み込み処理
-	// 新しく作るresource
+	// 新しくリソースを作成
 	std::unique_ptr<MeshResource> resource = std::make_unique<MeshResource>();
+
 	// 拡張子の抽出
 	std::string ext = GetExtension(fileName);
 
@@ -32,10 +30,10 @@ uint32_t MeshLoader::Load(const std::string& rootPath, const std::string& fileNa
 	}
 
 	// managerに登録
-	meshMgr_->Register(key, std::move(resource));
+	meshMgr_->Register(fileName, std::move(resource));
 
-	// keyを返す
-	return key;
+	// 登録後にIDを返す
+	return meshMgr_->GetIDByString(fileName);
 }
 
 void MeshLoader::LoadOBJ(const std::string& path, MeshResource* resource)

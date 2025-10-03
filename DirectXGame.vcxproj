@@ -610,6 +610,7 @@ copy "$(WindowsSdkDir)bin\$(TargetPlatformVersion)\x64\dxil.dll" "$(TargetDir)dx
     <ClInclude Include="Engine\Transform\Structure\Transform.h" />
     <ClInclude Include="Engine\Tsumi.h" />
     <ClInclude Include="Engine\Utilities\EnumUtilities\EnumUtilities.h" />
+    <ClInclude Include="Engine\Utilities\IDMap\IDMap.h" />
     <ClInclude Include="Engine\Utilities\PtrUtilities\PtrUtilities.h" />
     <ClInclude Include="Engine\Utilities\TimeSystem\TimeSystem.h" />
     <ClInclude Include="Engine\Utilities\ImGuiManager\ImGuiManager.h" />

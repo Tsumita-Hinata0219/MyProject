@@ -49,7 +49,7 @@ private:
 	/// <summary>
 	/// メッシュデータを読み込み
 	/// </summary>
-	uint32_t LoadMesh(uint32_t key, const std::string& fullPath, const aiScene* scene);
+	uint32_t LoadMesh(const std::string& fileName, const std::string& fullPath, const aiScene* scene);
 
 	/// <summary>
 	/// ノードの読み込み処理

@@ -13,72 +13,81 @@
 #include "Math/MyMath.h"
 #include "MeshResource.h"
 
-
+/* メッシュリソース管理クラス */
 class MeshManager {
 
 private: // シングルトン
 
-	MeshManager() = default;
-	~MeshManager() = default;
-	MeshManager(const MeshManager&) = delete;
-	const MeshManager& operator=(const MeshManager&) = delete;
-	
+    MeshManager() = default;
+    ~MeshManager() = default;
+    MeshManager(const MeshManager&) = delete;
+    const MeshManager& operator=(const MeshManager&) = delete;
+
 public:
 
-	/// <summary>
-	/// インスタンスの取得
-	/// </summary>
-	static MeshManager* GetInstance() {
-		static MeshManager instance;
-		return &instance;
-	}
+    /// <summary>
+    /// インスタンスの取得
+    /// </summary>
+    static MeshManager* GetInstance() {
+        static MeshManager instance;
+        return &instance;
+    }
 
-	/// <summary>
-	/// 初期化処理
-	/// </summary>
-	void Init();
+    /// <summary>
+    /// 初期化処理
+    /// </summary>
+    void Init() {
+        // 必要があればここに初期化コードを書く
+    }
 
-	/// <summary>
-	/// 終了処理
-	/// </summary>
-	void Finalize();
+    /// <summary>
+    /// 終了処理
+    /// </summary>
+    void Finalize() {
+        // 必要があればここに解放コードを書く
+    }
 
-	/// <summary>
-	/// Mapに登録
-	/// </summary>
-	void Register(uint32_t key, std::unique_ptr<MeshResource> resource) {
-		// keyで検索し引っかかるならreturn
-		auto it = meshResourceMap_.find(key);
-		if (it != meshResourceMap_.end()) {
-			return;
-		}
+    /// <summary>
+    /// 登録
+    /// </summary>
+    void Register(const std::string& key, std::unique_ptr<MeshResource> resource) {
+        meshMap_.Register(key, std::move(resource));
+    }
 
-		// なければMapに追加
-		if (resource) {
-			meshResourceMap_[key] = std::move(resource);
-		}
-	}
+    /// <summary>
+    /// 文字列キーで取得
+    /// </summary>
+    MeshResource* Get(const std::string& key) {
+        return meshMap_.GetByString(key);
+    }
 
-	/// <summary>
-	/// Map内に存在するか
-	/// </summary>
-	bool Exists(uint32_t key) const {
-		return meshResourceMap_.find(key) != meshResourceMap_.end();
-	}
+    /// <summary>
+    /// IDで取得
+    /// </summary>
+    MeshResource* Get(uint32_t id) {
+        return meshMap_.GetByID(id);
+    }
 
-	/// <summary>
-	/// uint32_t型のキーを返す
-	/// </summary>
-	const uint32_t GetKey(uint32_t key) const {
-		auto it = meshResourceMap_.find(key);
-		if (it != meshResourceMap_.end()) {
-			return it->first; // mapのキー
-		}
-		throw std::runtime_error("Key not found");
-	}
+    /// <summary>
+    /// 存在確認
+    /// </summary>
+    bool Exists(const std::string& key) const {
+        return meshMap_.Exists(key);
+    }
+    bool Exists(uint32_t id) const {
+        return meshMap_.Exists(id);
+    }
+
+    /// <summary>
+    /// 逆引き
+    /// </summary>
+    uint32_t GetIDByString(const std::string& key) const {
+        return meshMap_.GetIDByString(key);
+    }
+    std::string GetStringByID(uint32_t id) const {
+        return meshMap_.GetStringByID(id);
+    }
 
 private:
-
-	// メッシュのコンテナマップ
-	std::unordered_map<uint32_t, std::unique_ptr<MeshResource>> meshResourceMap_;
+    IDMap<MeshResource> meshMap_;
 };

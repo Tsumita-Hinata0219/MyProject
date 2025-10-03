@@ -13,73 +13,77 @@
 #include "Math/MyMath.h"
 #include "TextureResource.h"
 
-
 /* テクスチャリソース管理クラス */
 class TexManager {
 
 private: // シングルトン
 
-	TexManager() = default;
-	~TexManager() = default;
-	TexManager(const TexManager&) = delete;
-	const TexManager& operator=(const TexManager&) = delete;
+    TexManager() = default;
+    ~TexManager() = default;
+    TexManager(const TexManager&) = delete;
+    const TexManager& operator=(const TexManager&) = delete;
 
 public:
 
-	/// <summary>
-	/// インスタンスの取得
-	/// </summary>
-	static TexManager* GetInstance() {
-		static TexManager instance;
-		return &instance;
-	}
+    /// <summary>
+    /// インスタンスの取得
+    /// </summary>
+    static TexManager* GetInstance() {
+        static TexManager instance;
+        return &instance;
+    }
 
-	/// <summary>
-	/// 初期化処理
-	/// </summary>
-	void Init() {};
+    /// <summary>
+    /// 初期化処理
+    /// </summary>
+    void Init() {};
 
-	/// <summary>
-	/// 終了処理
-	/// </summary>
-	void Finalize() {};
+    /// <summary>
+    /// 終了処理
+    /// </summary>
+    void Finalize() {};
 
-	/// <summary>
-	/// Mapに登録
-	/// </summary>
-	void Register(uint32_t key, std::unique_ptr<TexResource> resource) {
-		// keyで検索し引っかかるならreturn
-		auto it = texResourceMap_.find(key);
-		if (it != texResourceMap_.end()) {
-			return;
-		}
+    /// <summary>
+    /// 登録（文字列キー）
+    /// </summary>
+    void Register(const std::string& key, std::unique_ptr<TexResource> resource) {
+        texMap_.Register(key, std::move(resource));
+    }
 
-		// なければMapに追加
-		if (resource) {
-			texResourceMap_[key] = std::move(resource);
-		}
-	}
+    /// <summary>
+    /// 文字列キーで取得
+    /// </summary>
+    TexResource* GetByString(const std::string& key) {
+        return texMap_.GetByString(key);
+    }
 
-	/// <summary>
-	/// Map内に存在するか
-	/// </summary>
-	bool Exists(uint32_t key) const {
-		return texResourceMap_.find(key) != texResourceMap_.end();
-	}
+    /// <summary>
+    /// IDで取得
+    /// </summary>
+    TexResource* GetByID(uint32_t id) {
+        return texMap_.GetByID(id);
+    }
 
-	/// <summary>
-	/// uint32_t型のキーを返す
-	/// </summary>
-	const uint32_t GetKey(uint32_t key) const {
-		auto it = texResourceMap_.find(key);
-		if (it != texResourceMap_.end()) {
-			return it->first; // mapのキー
-		}
-		throw std::runtime_error("Key not found"); 
-	}
+    /// <summary>
+    /// 存在確認
+    /// </summary>
+    bool Exists(const std::string& key) const {
+        return texMap_.Exists(key);
+    }
+    bool Exists(uint32_t id) const {
+        return texMap_.Exists(id);
+    }
+
+    /// <summary>
+    /// 逆引き
+    /// </summary>
+    uint32_t GetIDByString(const std::string& key) const {
+        return texMap_.GetIDByString(key);
+    }
+    std::string GetStringByID(uint32_t id) const {
+        return texMap_.GetStringByID(id);
+    }
 
 private:
-
-	// テクスチャのコンテナマップ
-	std::unordered_map<uint32_t, std::unique_ptr<TexResource>> texResourceMap_;
+    IDMap<TexResource> texMap_; // ← これに集約
 };

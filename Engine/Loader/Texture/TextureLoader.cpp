@@ -28,34 +28,33 @@ uint32_t TextureLoader::Load(const std::string& rootPath, const std::string& fil
 {
 	// フルファイルパス
 	std::string fullPath = "Resources/" + rootPath + "/" + fileName;
-	// アクセスキー
-	std::uint32_t key = FNV1aHash(fileName);
 
-	// keyが既存ならreturn
-	if (texMgr_->Exists(key)) {
-		return key;
+	// すでに登録済みなら登録済みIDを返す
+	if (texMgr_->Exists(fileName)) {
+		return texMgr_->GetIDByString(fileName);
 	}
 
-	// 読み込み処理
-	// 新しく作るresource
-	std::unique_ptr<TexResource> resource = std::make_unique<TexResource>();
+	// 新しいリソースを作成
+	auto resource = std::make_unique<TexResource>();
+
 	// 拡張子の抽出
 	std::string ext = GetExtension(fileName);
 
 	if (ext == TexFileExt::PNG.first || ext == TexFileExt::JPEG.first) {
 		LoadPNGorJPEG(fullPath, resource.get());
 	}
-	else if (ext == TexFileExt::JPEG.first) { 
-	}
 	else if (ext == TexFileExt::DDS.first) {
 		LoadDDS(fullPath, resource.get());
 	}
+	else {
+		throw std::runtime_error("Unsupported texture format: " + ext);
+	}
 
-	// managerに登録
-	texMgr_->Register(key, std::move(resource));
+	// managerに登録（fileName がキーになる）
+	texMgr_->Register(fileName, std::move(resource));
 
-	// keyを返す
-	return key;
+	// 登録したIDを返す
+	return texMgr_->GetIDByString(fileName);
 }
 
 void TextureLoader::LoadPNGorJPEG(const std::string& path, TexResource* resource)
