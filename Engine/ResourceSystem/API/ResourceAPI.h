@@ -4,6 +4,7 @@
 #include "Loader/Texture/TextureLoader.h"
 #include "ResourceSystem/Mesh/MeshManager.h"
 #include "Loader/Mesh/MeshLoader.h"
+#include "Loader/Renderable/RenderableLoader.h"
 
 struct Texture {};
 struct Model {};
@@ -30,8 +31,6 @@ public:
 	template <typename T>
 	static void Load(const std::string& root, std::string name);
     
-private:
-
 };
 
 
@@ -59,5 +58,5 @@ void ResourceAPI::Load<Texture>(const std::string& root, std::string name) {
 
 template <>
 void ResourceAPI::Load<Model>(const std::string& root, std::string name) {
-	MeshLoader::GetInstance()->Load(root, name);
+	RenderableLoader::GetInstance()->Load(root, name);
 }

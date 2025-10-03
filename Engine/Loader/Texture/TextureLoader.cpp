@@ -33,7 +33,7 @@ uint32_t TextureLoader::Load(const std::string& rootPath, const std::string& fil
 
 	// keyが既存ならreturn
 	if (texMgr_->Exists(key)) {
-		return;
+		return key;
 	}
 
 	// 読み込み処理
