@@ -1,93 +1,77 @@
 #include "Tsumi.h"
 
-/// <summary>
-/// インスタンスの取得
-/// </summary>
-Tsumi* Tsumi::GetInstance() {
-	static Tsumi instance;
-	return &instance;
+
+Tsumi::Tsumi()
+{
+	winApp_ = WinApp::GetInstance();
+	dxMgr_ = DirectXManager::GetInstance();
+	shaderMgr_ = ShaderManager::GetInstance();
+	pipeLineMgr_ = PipeLineManager::GetInstance();
+	texMgr_ = TextureManager::GetInstance();
+	imguiMgr_ = ImGuiManager::GetInstance();
+	input_ = Input::GetInstance();
+	audio_ = Audio::GetInstance();
+	descriptorMgr_ = DescriptorManager::GetInstance();
+	rtvMgr_ = RTVManager::GetInstance();
 }
 
-
-/// <summary>
-/// 初期化処理
-/// </summary>
 void Tsumi::Initialize() {
 
 	// WinAppの初期化処理
-	WinApp::Initialize(L"Shape Conquest");
+	winApp_->Initialize(L"Shape Conquest");
 
 	// DirectXCommonの初期化処理
-	DirectXManager::Initialize();
+	dxMgr_->Initialize();
 
 	// ShaderManagerの初期化処理
-	ShaderManager::Initialize();
+	shaderMgr_->Initialize();
 
 	// PipeLineManagerの初期化処理
-	PipeLineManager::CreatePipeLine();
+	pipeLineMgr_->CreatePipeLine();
 
 	// TextureManagerの初期化処理
-	TextureManager::Initialize();
+	texMgr_->Initialize();
 
 	// ImGuiの初期化処理
-	ImGuiManager::Initialize();
+	imguiMgr_->Initialize();
 
 	// Inputの初期化処理
-	Input::GetInstance()->Initialize();
+	input_->Initialize();
 
 	// Audioの初期化処理
-	Audio::Initialize();
+	audio_->Initialize();
 
 	// DescriptorManagerの初期化処理
-	DescriptorManager::Init();
-	//SRVManager::Initialize();
-	TextureManager::LoadTexture("Texture", "uvChecker.png");
+	descriptorMgr_->Init();
+	texMgr_->LoadTexture("Texture", "uvChecker.png");
 }
 
-
-/// <summary>
-/// 解放処理
-/// </summary>
 void Tsumi::Finalize() {
 
-	Audio::Finalize();
-	ImGuiManager::Release();
-	TextureManager::Finalize();
-	DescriptorManager::Clear();
-	//SRVManager::Clear();
+	audio_->Finalize();
+	imguiMgr_->Release();
+	texMgr_->Finalize();
+	descriptorMgr_->Clear();
 }
 
-
-/// <summary>
-/// フレームの開始
-/// </summary>
 void Tsumi::BeginFlame() {
 
-	ImGuiManager::BeginFrame();
-	Input::GetInstance()->BeginFrame();
-	DescriptorManager::BeginFrame();
-	RTVManager::BeginFrame();
-	//SRVManager::BeginFrame();
-	PipeLineManager::PipeLineReset();
+	imguiMgr_->BeginFrame();
+	input_->BeginFrame();
+	descriptorMgr_->BeginFrame();
+	rtvMgr_->BeginFrame();
+	pipeLineMgr_->PipeLineReset();
 }
 
-
-/// <summary>
-/// フレームの終了
-/// </summary>
 void Tsumi::EndFlame() {
 
 	// ImGuiの描画処理
-	ImGuiManager::EndFrame();
+	imguiMgr_->EndFrame();
 }
 
-
-/// <summary>
-/// メッセージの処理
-/// </summary>
 bool Tsumi::ProcessMessage() {
 
-	if (WinApp::ProcessMessage()) {
+	if (winApp_->ProcessMessage()) {
 		return true;
 	}
 	else {

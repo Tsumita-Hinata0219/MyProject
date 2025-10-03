@@ -10,7 +10,7 @@ float g_ElapsedTime = 0.0f;
 GameManager::GameManager(std::unique_ptr<IScene> initScene) {
 
 	// フレームワーク
-	tsumi_ = tsumi_->GetInstance();
+	tsumi_ = std::make_unique<Tsumi>();
 	tsumi_->Initialize();
 
 	// DirectX

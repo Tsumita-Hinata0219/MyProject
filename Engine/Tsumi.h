@@ -21,44 +21,50 @@ public:
 	/// <summary>
 	/// コンストラクタ
 	/// </summary>
-	Tsumi() {};
+	Tsumi();
 
 	/// <summary>
 	/// デストラクタ
 	/// </summary>
-	~Tsumi() {};
-
-	/// <summary>
-	/// インスタンスの取得
-	/// </summary>
-	static Tsumi* GetInstance();
+	~Tsumi() = default;
 
 	/// <summary>
 	/// 初期化処理
 	/// </summary>
-	static void Initialize();
+	void Initialize();
 
 	/// <summary>
 	/// 解放処理
 	/// </summary>
-	static void Finalize();
+	void Finalize();
 
 	/// <summary>
 	/// フレームの開始
 	/// </summary>
-	static void BeginFlame();
+	void BeginFlame();
 
 	/// <summary>
 	/// フレームの終了
 	/// </summary>
-	static void EndFlame();
+	void EndFlame();
 
 	/// <summary>
 	/// メッセージの処理
 	/// </summary>
-	static bool ProcessMessage();
+	bool ProcessMessage();
 
 private:
 
+
+	WinApp* winApp_ = nullptr;
+	DirectXManager* dxMgr_ = nullptr;
+	ShaderManager* shaderMgr_ = nullptr;
+	PipeLineManager* pipeLineMgr_ = nullptr;
+	TextureManager* texMgr_ = nullptr;
+	ImGuiManager* imguiMgr_ = nullptr;
+	Input* input_ = nullptr;
+	Audio* audio_ = nullptr;
+	DescriptorManager* descriptorMgr_ = nullptr;
+	RTVManager* rtvMgr_ = nullptr;
 
 };

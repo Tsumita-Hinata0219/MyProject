@@ -50,7 +50,7 @@ public:
 private:
 
 	// フレームワーク
-	Tsumi* tsumi_ = nullptr;
+	std::unique_ptr<Tsumi> tsumi_;
 
 	// DirectX
 	DirectXManager* dxManager_ = nullptr;
