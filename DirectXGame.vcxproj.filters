@@ -287,8 +287,9 @@
     <ClCompile Include="Engine\Graphics\Material\Decal\Decal.cpp" />
     <ClCompile Include="Application\GameObject\Terrain\Skydome\Skydome.cpp" />
     <ClCompile Include="Engine\Loader\Texture\TextureLoader.cpp" />
-    <ClCompile Include="Engine\ResourceSystem\Tex\TexManager.cpp" />
     <ClCompile Include="Engine\ResourceSystem\Descriptor\DescriptorHeapManager.cpp" />
+    <ClCompile Include="Engine\Loader\Mesh\MeshLoader.cpp" />
+    <ClCompile Include="Engine\Loader\Renderable\RenderableLoader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application\System\GameManager\GameManager.h">
@@ -869,13 +870,16 @@
     <ClInclude Include="Engine\Graphics\PipeLineManager\ModelPipeLine\Decal\DecalPipeLine.h" />
     <ClInclude Include="Engine\Graphics\Material\Decal\Decal.h" />
     <ClInclude Include="Application\GameObject\Terrain\Skydome\Skydome.h" />
-    <ClInclude Include="Engine\Loader\Model\ModelLoader.h" />
+    <ClInclude Include="Engine\Loader\Mesh\MeshLoader.h" />
     <ClInclude Include="Engine\Loader\Texture\TextureLoader.h" />
     <ClInclude Include="Engine\ResourceSystem\Tex\TexManager.h" />
     <ClInclude Include="Engine\ResourceSystem\Interface\IResource.h" />
     <ClInclude Include="Engine\ResourceSystem\Tex\TextureResource.h" />
     <ClInclude Include="Engine\ResourceSystem\Descriptor\DescriptorHeapManager.h" />
     <ClInclude Include="Engine\ResourceSystem\API\ResourceAPI.h" />
+    <ClInclude Include="Engine\ResourceSystem\Mesh\MeshResource.h" />
+    <ClInclude Include="Engine\ResourceSystem\Mesh\MeshManager.h" />
+    <ClInclude Include="Engine\Loader\Renderable\RenderableLoader.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Application">

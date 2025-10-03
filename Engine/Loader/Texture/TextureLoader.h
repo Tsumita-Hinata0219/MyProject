@@ -50,7 +50,7 @@ public:
 	/// <summary>
 	/// テクスチャのロード
 	/// </summary>
-	void Load(const std::string& rootPath, const std::string& fileName);
+	uint32_t Load(const std::string& rootPath, const std::string& fileName);
 	
 private:
 

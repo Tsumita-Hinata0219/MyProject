@@ -129,9 +129,6 @@ struct SkinCluster {
 };
 
 // マテリアル
-struct Material {
-	Vector4 color;
-};
 struct MaterialSprite {
 	Vector4 color;
 	Matrix4x4 uvTransform;

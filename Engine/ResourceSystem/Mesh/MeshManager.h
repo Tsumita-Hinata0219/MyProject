@@ -11,52 +11,51 @@
 #include<vector>
 
 #include "Math/MyMath.h"
-#include "TextureResource.h"
+#include "MeshResource.h"
 
 
-/* テクスチャリソース管理クラス */
-class TexManager {
+class MeshManager {
 
 private: // シングルトン
 
-	TexManager() = default;
-	~TexManager() = default;
-	TexManager(const TexManager&) = delete;
-	const TexManager& operator=(const TexManager&) = delete;
-
+	MeshManager() = default;
+	~MeshManager() = default;
+	MeshManager(const MeshManager&) = delete;
+	const MeshManager& operator=(const MeshManager&) = delete;
+	
 public:
 
 	/// <summary>
 	/// インスタンスの取得
 	/// </summary>
-	static TexManager* GetInstance() {
-		static TexManager instance;
+	static MeshManager* GetInstance() {
+		static MeshManager instance;
 		return &instance;
 	}
 
 	/// <summary>
 	/// 初期化処理
 	/// </summary>
-	void Init() {};
+	void Init();
 
 	/// <summary>
 	/// 終了処理
 	/// </summary>
-	void Finalize() {};
+	void Finalize();
 
 	/// <summary>
 	/// Mapに登録
 	/// </summary>
-	void Register(uint32_t key, std::unique_ptr<TexResource> resource) {
+	void Register(uint32_t key, std::unique_ptr<MeshResource> resource) {
 		// keyで検索し引っかかるならreturn
-		auto it = texResourceMap_.find(key);
-		if (it != texResourceMap_.end()) {
+		auto it = meshResourceMap_.find(key);
+		if (it != meshResourceMap_.end()) {
 			return;
 		}
 
 		// なければMapに追加
 		if (resource) {
-			texResourceMap_[key] = std::move(resource);
+			meshResourceMap_[key] = std::move(resource);
 		}
 	}
 
@@ -64,22 +63,22 @@ public:
 	/// Map内に存在するか
 	/// </summary>
 	bool Exists(uint32_t key) const {
-		return texResourceMap_.find(key) != texResourceMap_.end();
+		return meshResourceMap_.find(key) != meshResourceMap_.end();
 	}
 
 	/// <summary>
 	/// uint32_t型のキーを返す
 	/// </summary>
 	const uint32_t GetKey(uint32_t key) const {
-		auto it = texResourceMap_.find(key);
-		if (it != texResourceMap_.end()) {
+		auto it = meshResourceMap_.find(key);
+		if (it != meshResourceMap_.end()) {
 			return it->first; // mapのキー
 		}
-		throw std::runtime_error("Key not found"); 
+		throw std::runtime_error("Key not found");
 	}
 
 private:
 
-	// テクスチャのコンテナマップ
-	std::unordered_map<uint32_t, std::unique_ptr<TexResource>> texResourceMap_;
+	// メッシュのコンテナマップ
+	std::unordered_map<uint32_t, std::unique_ptr<MeshResource>> meshResourceMap_;
 };

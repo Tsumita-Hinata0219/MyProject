@@ -24,7 +24,7 @@ TextureLoader::TextureLoader()
 	assert(fenceEvent_ != nullptr);
 }
 
-void TextureLoader::Load(const std::string& rootPath, const std::string& fileName)
+uint32_t TextureLoader::Load(const std::string& rootPath, const std::string& fileName)
 {
 	// フルファイルパス
 	std::string fullPath = "Resources/" + rootPath + "/" + fileName;
@@ -53,6 +53,9 @@ void TextureLoader::Load(const std::string& rootPath, const std::string& fileNam
 
 	// managerに登録
 	texMgr_->Register(key, std::move(resource));
+
+	// keyを返す
+	return key;
 }
 
 void TextureLoader::LoadPNGorJPEG(const std::string& path, TexResource* resource)
