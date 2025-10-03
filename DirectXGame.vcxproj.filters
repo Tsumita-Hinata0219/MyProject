@@ -87,27 +87,6 @@
     <ClCompile Include="Engine\Tsumi.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="externals\imgui\imgui.cpp">
-      <Filter>externals\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="externals\imgui\imgui_demo.cpp">
-      <Filter>externals\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="externals\imgui\imgui_draw.cpp">
-      <Filter>externals\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="externals\imgui\imgui_impl_dx12.cpp">
-      <Filter>externals\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="externals\imgui\imgui_impl_win32.cpp">
-      <Filter>externals\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="externals\imgui\imgui_tables.cpp">
-      <Filter>externals\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="externals\imgui\imgui_widgets.cpp">
-      <Filter>externals\imgui</Filter>
-    </ClCompile>
     <ClCompile Include="externals\DirectXTex\DirectXTexCompress.cpp">
       <Filter>externals\DirectXTex</Filter>
     </ClCompile>
@@ -201,7 +180,6 @@
     <ClCompile Include="Application\GameObject\Dev\DummyParticle\DummyParticle.cpp" />
     <ClCompile Include="Engine\Entity\Manager\GameEntityManager.cpp" />
     <ClCompile Include="Engine\Graphics\GPUParticle\Material\FadeOut\ParticleFadeOut.cpp" />
-    <ClCompile Include="externals\imgui\imgui_stdlib.cpp" />
     <ClCompile Include="Engine\Platform\WinApp\WinApp.cpp" />
     <ClCompile Include="Engine\Physics\Collision\Collider\CollisionAABB.cpp" />
     <ClCompile Include="Engine\Physics\Collision\Collider\CollisionSphere.cpp" />
@@ -290,6 +268,13 @@
     <ClCompile Include="Engine\ResourceSystem\Descriptor\DescriptorHeapManager.cpp" />
     <ClCompile Include="Engine\Loader\Mesh\MeshLoader.cpp" />
     <ClCompile Include="Engine\Loader\Renderable\RenderableLoader.cpp" />
+    <ClCompile Include="externals\imguidocking\imgui.cpp" />
+    <ClCompile Include="externals\imguidocking\imgui_demo.cpp" />
+    <ClCompile Include="externals\imguidocking\imgui_draw.cpp" />
+    <ClCompile Include="externals\imguidocking\imgui_impl_dx12.cpp" />
+    <ClCompile Include="externals\imguidocking\imgui_impl_win32.cpp" />
+    <ClCompile Include="externals\imguidocking\imgui_tables.cpp" />
+    <ClCompile Include="externals\imguidocking\imgui_widgets.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application\System\GameManager\GameManager.h">
@@ -417,30 +402,6 @@
     </ClInclude>
     <ClInclude Include="externals\json\json.hpp">
       <Filter>externals\json</Filter>
-    </ClInclude>
-    <ClInclude Include="externals\imgui\imconfig.h">
-      <Filter>externals\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="externals\imgui\imgui.h">
-      <Filter>externals\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="externals\imgui\imgui_impl_dx12.h">
-      <Filter>externals\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="externals\imgui\imgui_impl_win32.h">
-      <Filter>externals\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="externals\imgui\imgui_internal.h">
-      <Filter>externals\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="externals\imgui\imstb_rectpack.h">
-      <Filter>externals\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="externals\imgui\imstb_textedit.h">
-      <Filter>externals\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="externals\imgui\imstb_truetype.h">
-      <Filter>externals\imgui</Filter>
     </ClInclude>
     <ClInclude Include="externals\DirectXTex\DirectXTexP.h">
       <Filter>externals\DirectXTex</Filter>
@@ -771,7 +732,6 @@
     <ClInclude Include="Application\GameObject\Dev\DevActor\Col\DevActorSphereColComponent.h" />
     <ClInclude Include="Engine\Graphics\GPUParticle\Material\FadeOut\ParticleFadeOut.h" />
     <ClInclude Include="Engine\Graphics\GPUParticle\Structure\MaterialStructure.h" />
-    <ClInclude Include="externals\imgui\imgui_stdlib.h" />
     <ClInclude Include="Engine\Platform\WinApp\WinApp.h" />
     <ClInclude Include="Engine\Physics\Collision\Collider\CollisionAABB.h" />
     <ClInclude Include="Engine\Physics\Collision\Collider\CollisionSphere.h" />
@@ -880,6 +840,14 @@
     <ClInclude Include="Engine\ResourceSystem\Mesh\MeshResource.h" />
     <ClInclude Include="Engine\ResourceSystem\Mesh\MeshManager.h" />
     <ClInclude Include="Engine\Loader\Renderable\RenderableLoader.h" />
+    <ClInclude Include="externals\imguidocking\imconfig.h" />
+    <ClInclude Include="externals\imguidocking\imgui.h" />
+    <ClInclude Include="externals\imguidocking\imgui_impl_dx12.h" />
+    <ClInclude Include="externals\imguidocking\imgui_impl_win32.h" />
+    <ClInclude Include="externals\imguidocking\imgui_internal.h" />
+    <ClInclude Include="externals\imguidocking\imstb_rectpack.h" />
+    <ClInclude Include="externals\imguidocking\imstb_textedit.h" />
+    <ClInclude Include="externals\imguidocking\imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Application">
@@ -1910,11 +1878,6 @@
     <FxCompile Include="Resources\Shaders\GPUParticle\Material\FadeOut\GPUParticle_FadeOut.CS.hlsl" />
     <FxCompile Include="Resources\Shaders\Decal\Decal.VS.hlsl" />
     <FxCompile Include="Resources\Shaders\Decal\Decal.PS.hlsl" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="externals\imgui\LICENSE.txt">
-      <Filter>externals\imgui</Filter>
-    </Text>
   </ItemGroup>
   <ItemGroup>
     <Library Include="externals\assimp\lib\Debug\assimp-vc143-mdd.lib">

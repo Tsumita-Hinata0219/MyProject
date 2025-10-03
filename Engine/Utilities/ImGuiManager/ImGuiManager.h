@@ -32,4 +32,5 @@ public:
 
 	// フレーム終了
 	static void EndFrame();
+
 };
