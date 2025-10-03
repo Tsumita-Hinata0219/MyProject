@@ -266,7 +266,6 @@
     <ClCompile Include="Application\GameObject\Terrain\Skydome\Skydome.cpp" />
     <ClCompile Include="Engine\Loader\Texture\TextureLoader.cpp" />
     <ClCompile Include="Engine\ResourceSystem\Descriptor\DescriptorHeapManager.cpp" />
-    <ClCompile Include="Engine\Loader\Mesh\MeshLoader.cpp" />
     <ClCompile Include="Engine\Loader\Renderable\RenderableLoader.cpp" />
     <ClCompile Include="externals\imguidocking\imgui.cpp" />
     <ClCompile Include="externals\imguidocking\imgui_demo.cpp" />
@@ -831,7 +830,6 @@
     <ClInclude Include="Engine\Graphics\PipeLineManager\ModelPipeLine\Decal\DecalPipeLine.h" />
     <ClInclude Include="Engine\Graphics\Material\Decal\Decal.h" />
     <ClInclude Include="Application\GameObject\Terrain\Skydome\Skydome.h" />
-    <ClInclude Include="Engine\Loader\Mesh\MeshLoader.h" />
     <ClInclude Include="Engine\Loader\Texture\TextureLoader.h" />
     <ClInclude Include="Engine\ResourceSystem\Tex\TexManager.h" />
     <ClInclude Include="Engine\ResourceSystem\Interface\IResource.h" />

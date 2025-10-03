@@ -3,7 +3,6 @@
 #include "ResourceSystem/Tex/TexManager.h"
 #include "Loader/Texture/TextureLoader.h"
 #include "ResourceSystem/Mesh/MeshManager.h"
-#include "Loader/Mesh/MeshLoader.h"
 #include "Loader/Renderable/RenderableLoader.h"
 
 struct Tex {};
