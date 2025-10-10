@@ -85,5 +85,5 @@ public:
     }
 
 private:
-    IDMap<TexResource> texMap_; // ← これに集約
+    IDMap<TexResource> texMap_; 
 };

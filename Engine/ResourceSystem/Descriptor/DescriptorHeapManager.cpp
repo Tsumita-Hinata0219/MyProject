@@ -86,5 +86,4 @@ D3D12_GPU_DESCRIPTOR_HANDLE DescriptorHeapManager::GetGPUHandle(UINT index) cons
     D3D12_GPU_DESCRIPTOR_HANDLE handle = cbvSrvUavHeap_->GetGPUDescriptorHandleForHeapStart();
     handle.ptr += static_cast<SIZE_T>(index) * cbvSrvUavDescriptorSize_;
     return handle;
-
 }
